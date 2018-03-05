@@ -1,11 +1,12 @@
 body{
-    background-color: #333;
+    background-color: white;
     font-family: 'Open Sans', sans-serif;
+    padding-top: 40px;
 }
 
 .container-fluid{
 	margin: 0;
-overflow: hidden;
+    overflow: hidden;
 }
 
 /* navigation */
@@ -16,7 +17,28 @@ nav{
 nav-item>nav-link:active{
     color: blue;
 }
-  
+
+/* carousel */
+.container-fluid #homeWelcomeCarousel{
+	margin: 0px;
+    overflow: visible;
+    padding: 0px;
+} 
+.carousel-inner > .carousel-item >img{
+    min-height : 500px;
+    max-height : 600px;
+    width : 100%;
+  }
+
+  .container-fluid #homeWelcomeCarousel #homeWelcomeSearch{
+	margin: 0px;
+    padding: 0px;
+    position: absolute;
+    top: 30%;
+    z-index: 1;
+    color: orange;
+} 
+
 
 /*form*/
 .home_sections{
@@ -81,6 +103,16 @@ nav-item>nav-link:active{
   text-align: center;
 }
 
+/* profile page */
+.profile-div{
+    margin-top: 100px;
+    
+}
+
+
+
+
+
 /*others*/
 
 
@@ -110,7 +142,6 @@ a, a:hover, a:focus {
 
 ul ul a {
     font-size: 0.9em !important;
-    padding-left: 30px !important;
     background: #6d7fcc;
 }
 
@@ -118,23 +149,44 @@ ul ul a {
 footer{
   padding: 0px;
   margin: 0px;
-  background-color: #FFBB00	;
-  color: black;
+  background-color:   #323031;
+  color: whitesmoke;
 }
 
-ul#footer_list li{
-    display: inline-block;
+footer h1{
+    font-family: 'Times New Roman', Times, serif;
+    /* font-size: 60px; */
+} 
+
+footer span{
+    font-family: 'Times New Roman', Times, serif;
+    /* font-size: 20px; */
+} 
+
+.list-div ul {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    font-family: 'Times New Roman', Times, serif;
+    /* font-size: 16px; */
 }
 
-.footer{
-  position: inherit;
-  bottom: 0;
-  width: 100%;
-  height: 60px;
-  line-height: 40px;
-  
+.list-div ul li {
+    color: #999;
 }
 
-.material-icons { margin-top: 2px; padding: 0px; }
-.material-icons.md-light { color: rgba(255, 255, 255, 1); }
-.material-icons.md-36 { font-size: 36px; }
+footer .row div{
+    overflow: hidden;
+}
+/* 
+footer .list-div{
+    text-align: right;
+} */
+
+footer .form-div .col.sm input{
+    width: 50%;
+    height: 20px;
+}
+
+.material-icons i { margin-top: 2px; padding: 0px;}
+

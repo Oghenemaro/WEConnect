@@ -1,12 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../css/WeConnect_stylesheet.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Profile</title>
 </head>
+
 <body>
-    
+    <div class="container-fluid">
+        <nav class=" navbar navbar-expand-lg navbar-light bg-light fixed-top  col-sm-12">
+            <div class="col-sm-12 col-lg-4">
+                <a class="navbar-brand" href="index.html">WeConnect</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent"
+                    aria-expanded="false" aria-label="Toggle navigation" style="float: right">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse col-sm-12 col-lg-8" id="navbarContent">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0" id="navbar" style="text-align: right;">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Find A business</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+                <a class="btn btn-outline-primary btn-sm mr-3" href="../template/signup.html" style="float: right;">Sign up</a>
+                <a class=" btn btn-outline-primary btn-sm mr-3" href="../template/signin.html" style="float: right;">Login</a>
+            </div>
+        </nav>
+
+        <div class="row profile-div">
+            <div class="col-md-3 col-sm-12 text-center">
+                <img src="../images/black-avartar.png" class="img-thumbnail" alt="Not Supported">
+            </div>
+            <div class="col-md-6 col-sm-12 ">
+                <h2>Eclipse
+                    <span class="spans badge badge-info">Resturant</span>
+                </h2>
+                <hr>
+                <div class="row col-sm-12">
+                    <div class="col-sm-1">
+                        <i class="material-icons yellow">face</i>
+                    </div>
+                    <div class="col-sm-11">
+                        <h5>Eclipse</h5>
+                    </div>
+                </div>
+                <div class="row col-sm-12">
+                    <div class="col-sm-1">
+                        <i class="material-icons yellow">home</i>
+                    </div>
+                    <div class="col-sm-11">
+                        <h5>No. 344 Abebowale Street Ikoyi Lagos</h5>
+                    </div>
+                </div>
+                <div class="row col-sm-12">
+                    <div class="col-sm-1">
+                        <i class="material-icons yellow">email</i>
+                    </div>
+                    <div class="col-sm-11">
+                        <h5>mischief-resturant@gmail.com</h5>
+                    </div>
+                </div>
+                <div class="row col-sm-12">
+                    <div class="col-sm-1">
+                        <i class="material-icons yellow">call</i>
+                    </div>
+                    <div class="col-sm-11">
+                        <h5>+234 8073349771</h5>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-3 col-sm-12 ">
+                <div class="row col-sm-12">
+                    <div class="col-sm-3 text-right">
+                        <a href>
+                            <i class="material-icons yellow">settings</i>
+                        </a>
+                    </div>
+                    <div class="col-sm-9">
+                        <h5>
+                            <a href="" data-toggle="modal" data-target="#accountSettingModal">Account settings</a>
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings  Modal -->
+        <div class="modal fade" id="accountSettingModal" tabindex="-1" role="dialog" aria-labelledby="accountSettingModal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="" method="" class="form-inline mt-3">
+                            <div class="form-group">
+                                <input type="text" placeholder="Update Your Username" value="" name="" class="form-control-sm" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" placeholder="Update Your Firstname" value="" name="" class="form-control-sm" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" placeholder="Update Your Lastnamename" value="" name="" class="form-control-sm" />
+                            </div>
+                            <div class="form-group">
+                                <input type="textarea" col="20" row="20" placeholder="Update Your Address" value="" name="" class="form-control-sm" />
+                            </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="Update Your Email" value="" name="" class="form-control-sm" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" placeholder="Update Your Cell Number" value="" name="" class="form-control-sm" />
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container-fluid mt-5">
+            <div class="row " style=" height: inherit">
+                <div class="col-sm-12 col-lg-12">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-3 col-lg-3 mt-5 mr-3">
+                            <h1 class="mt-5">
+                                <a href="index.html">WeConnect</a>
+                            </h1>
+                        </div>
+                        <div class="col-sm-3 col-md-2 col-lg-2 mt-5  list-div">
+                            <span> Customer Service</span>
+                            <ul>
+                                <li>
+                                    <a href="#">help center</a>
+                                </li>
+                                <li>
+                                    <a href="#">FAQ</a>
+                                </li>
+                                <li>
+                                    <a href="#">report abuse</a>
+                                </li>
+                                <li>
+                                    <a href="#">policy & rules</a>
+                                </li>
+                                <li>
+                                    <a href="#">privacy</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-3 col-md-2 col-lg-2 mt-5 list-div">
+                            <span>About WeConnect</span>
+                            <ul>
+                                <li>
+                                    <a href="#">company bio</a>
+                                </li>
+                                <li>
+                                    <a href="#">contact</a>
+                                </li>
+                                <li>
+                                    <a href="#">our team</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="col-sm-6 col-md-4 col-lg-4 mt-5 form-div">
+                            <form action="" method="" class="form-inline mt-5" style="float: right;">
+                                <div class="form-group">
+                                    <input type="text" placeholder="Subscribe to emails" value="" name="" class="form-control" />
+                                    <button class="btn btn-primary">Subscribe</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-lg-12 text-center mt-5">
+                    <!-- <div><i class="material-icons">face</i></div> -->
+                    <div>
+                        <i class="material-icons">facebook</i>
+                    </div>
+                    <div>
+                        <i class="material-icons">goggle</i>
+                    </div>
+                    <div>
+                        <i class="material-icons">twitter</i>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-lg-12 mt-5">
+                    <span>&COPY; 2018, Copyright WeConnect </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>

@@ -34,26 +34,14 @@ nav-item>nav-link:active{
 	margin: 0px;
     padding: 0px;
     position: absolute;
-    top: 30%;
+    top: 40%;
     z-index: 1;
     color: orange;
 } 
 
 
-/*form*/
-.home_sections{
-/*    border: 1px solid black;*/
-    padding: 10px;
-    box-shadow: 7px 5px 15px 1px black;
-    border-radius: 5px;
-    overflow: hidden;
-}
-.add_recipe_form{
-/*    border: 1px solid black;*/
-    padding: 10px;
-    box-shadow: 2px 2px 10px 0px black;
-    border-radius: 10px;
-}
+
+
 
 /*images*/
 .img-fluid{
@@ -92,8 +80,8 @@ nav-item>nav-link:active{
 }
 
 .material-icons {
-  font-size: 36px;
-  color: #D32F2F;
+  /* font-size: 36px; */
+  color: orangered;
   margin-bottom: 5px;
 }
 
@@ -105,7 +93,7 @@ nav-item>nav-link:active{
 
 /* profile page */
 .profile-div{
-    margin-top: 100px;
+    margin-top: 80px;
     
 }
 
@@ -147,8 +135,8 @@ ul ul a {
 
 /* footer */
 footer{
-  padding: 0px;
-  margin: 0px;
+  /* padding: 0px; */
+  /* margin: 0px; */
   background-color:   #323031;
   color: whitesmoke;
 }
@@ -178,14 +166,14 @@ footer span{
 footer .row div{
     overflow: hidden;
 }
-/* 
-footer .list-div{
-    text-align: right;
-} */
 
-footer .form-div .col.sm input{
-    width: 50%;
-    height: 20px;
+
+footer .form-div input{
+    float: left;
+}
+
+footer .input-group{
+    float: left;
 }
 
 .material-icons i { margin-top: 2px; padding: 0px;}

@@ -22,13 +22,13 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
-            <div class="collapse navbar-collapse col-sm-12 col-lg-8" id="navbarContent">
+            <div class="collapse navbar-collapse col-sm-12 col-lg-8" id="navbarContent" style=" padding: 0px;">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0" id="navbar" style="text-align: right;">
                     <li class="nav-item active">
                         <a class="nav-link" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Find A business</a>
+                        <a class="nav-link" href="#">Find A Business</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Profile</a>
@@ -36,65 +36,214 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contact</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Create A Business</a>
+                    </li>
                 </ul>
-                <a class="btn btn-outline-primary btn-sm mr-3" href="../template/signup.html" style="float: right;">Sign up</a>
-                <a class=" btn btn-outline-primary btn-sm mr-3" href="../template/signin.html" style="float: right;">Login</a>
+                <a class="btn btn-outline-danger btn-sm mr-3" href="../template/signup.html" style="float: right;">Log out</a>
             </div>
         </nav>
 
-        <div class="row profile-div">
-            <div class="col-md-3 col-sm-12 text-center">
-                <img src="../images/black-avartar.png" class="img-thumbnail" alt="Not Supported">
-            </div>
-            <div class="col-md-6 col-sm-12 ">
-                <h2>Eclipse
-                    <span class="spans badge badge-info">Resturant</span>
-                </h2>
-                <hr>
-                <div class="row col-sm-12">
-                    <div class="col-sm-1">
-                        <i class="material-icons yellow">face</i>
-                    </div>
-                    <div class="col-sm-11">
-                        <h5>Eclipse</h5>
-                    </div>
-                </div>
-                <div class="row col-sm-12">
-                    <div class="col-sm-1">
-                        <i class="material-icons yellow">home</i>
-                    </div>
-                    <div class="col-sm-11">
-                        <h5>No. 344 Abebowale Street Ikoyi Lagos</h5>
-                    </div>
-                </div>
-                <div class="row col-sm-12">
-                    <div class="col-sm-1">
-                        <i class="material-icons yellow">email</i>
-                    </div>
-                    <div class="col-sm-11">
-                        <h5>mischief-resturant@gmail.com</h5>
-                    </div>
-                </div>
-                <div class="row col-sm-12">
-                    <div class="col-sm-1">
-                        <i class="material-icons yellow">call</i>
-                    </div>
-                    <div class="col-sm-11">
-                        <h5>+234 8073349771</h5>
-                    </div>
-                </div>
+        <style>
+            .profile-div h5 {
+                font-family: 'Times New Roman', Times, serif;
 
+            }
+        </style>
+
+        <div class="row profile-div mb-5">
+            <div class="col-md-3 col-sm-12 text-center">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <img src="../images/black-avartar.png" class="img-thumbnail" alt="Not Supported">
+                    </div>
+                    <div class="row col-sm-12 mt-5">
+                        <div class="col-sm-2">
+                            <i class="material-icons yellow">face</i>
+                        </div>
+                        <div class="col-sm-8">
+                            <h5>Eclipse</h5>
+                        </div>
+                    </div>
+                    <div class="row col-sm-12">
+                        <div class="col-sm-2">
+                            <i class="material-icons yellow">home</i>
+                        </div>
+                        <div class="col-sm-8">
+                            <h5>No. 344 Abebowale Street Ikoyi Lagos</h5>
+                        </div>
+                    </div>
+                    <div class="row col-sm-12">
+                        <div class="col-sm-2">
+                            <i class="material-icons yellow">email</i>
+                        </div>
+                        <div class="col-sm-8">
+                            <h5>mischief-resturant@gmail.com</h5>
+                        </div>
+                    </div>
+                    <div class="row col-sm-12">
+                        <div class="col-sm-2">
+                            <i class="material-icons yellow">call</i>
+                        </div>
+                        <div class="col-sm-8">
+                            <h5>+234 8073349771</h5>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-3 col-sm-12 ">
-                <div class="row col-sm-12">
+
+            <div class="col-md-7 col-sm-12 ">
+                <div>
+                    <nav>
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-bookmarked-tab" data-toggle="tab" href="#nav-bookmarked" role="tab" aria-controls="nav-bookmarked"
+                                aria-selected="true">Bookmarked Businesses</a>
+                            <a class="nav-item nav-link" id="nav-review-tab" data-toggle="tab" href="#nav-review" role="tab" aria-controls="nav-review"
+                                aria-selected="false">Reviewed Businesses</a>
+                            <a class="nav-item nav-link" id="nav-personal-business-tab" data-toggle="tab" href="#nav-personal-business" role="tab" aria-controls="nav-personal-business"
+                                aria-selected="false">Your Businesses</a>
+                        </div>
+                    </nav>
+
+                    <div class="tab-content" id="nav-tabContent">
+                        <!-- nav-tab bookmarked -->
+                        <div class="tab-pane fade show active" id="nav-bookmarked" role="tabpanel" aria-labelledby="nav-bookmarked-tab">
+                            <div class="card-deck mt-4">
+                                <div class="card">
+                                    <img class="card-img-top" src="recipe3.jpg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Rice market</h4>
+                                        <p class="card-text">We recommend you uncover the stories behind the increase indemand for rice locally.
+                                            Read on...</p>
+
+                                    </div>
+                                    <div class="card-footer">
+                                        <a href="./template/recipe.html" class="btn btn-sm btn-outline-primary">View Details</a>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <img class="card-img-top" src="recipe3.jpg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Cryptocurrency</h4>
+                                        <p class="card-text">
+                                            The crypto ecosystem is heavily affecting the way people trade in most countries and will surely affect the future. Discover...
+                                        </p>
+
+                                    </div>
+                                    <div class="card-footer">
+                                        <a href="./template/recipe.html" class="btn btn-sm btn-outline-primary">View Details</a>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <img class="card-img-top" src="recipe3.jpg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Clean & Renewable Energy</h4>
+                                        <p class="card-text">Discover a huge market seeking a solution to the replacement of PMS among other crude
+                                            distillation. Discover more... </p>
+
+                                    </div>
+                                    <div class="card-footer">
+                                        <a href="./template/recipe.html" class="btn btn-sm btn-outline-primary">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- nav-tab reviewed businesses -->
+                        <div class="tab-pane fade" id="nav-review" role="tabpanel" aria-labelledby="nav-review-tab">
+                            <div class="card-deck mt-4">
+                                <div class="card">
+                                    <img class="card-img-top" src="recipe3.jpg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Rice market</h4>
+                                        <p class="card-text">We recommend you uncover the stories behind the increase indemand for rice locally.
+                                            Read on...</p>
+
+                                    </div>
+                                    <div class="card-footer">
+                                        <a href="./template/recipe.html" class="btn btn-sm btn-outline-primary">View Details</a>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <img class="card-img-top" src="recipe3.jpg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Cryptocurrency</h4>
+                                        <p class="card-text">
+                                            The crypto ecosystem is heavily affecting the way people trade in most countries and will surely affect the future. Discover...
+                                        </p>
+
+                                    </div>
+                                    <div class="card-footer">
+                                        <a href="./template/recipe.html" class="btn btn-sm btn-outline-primary">View Details</a>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <img class="card-img-top" src="recipe3.jpg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Clean & Renewable Energy</h4>
+                                        <p class="card-text">Discover a huge market seeking a solution to the replacement of PMS among other crude
+                                            distillation. Discover more... </p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <a href="./template/recipe.html" class="btn btn-sm btn-outline-primary">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- nav-tab panel personal-business -->
+                        <div class="tab-pane fade" id="nav-personal-business" role="tabpanel" aria-labelledby="nav-personal-business-tab">
+                            <div class="card-deck mt-4">
+                                <div class="card">
+                                    <img class="card-img-top" src="recipe3.jpg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Rice market</h4>
+                                        <p class="card-text">We recommend you uncover the stories behind the increase indemand for rice locally.
+                                            Read on...</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <a href="./template/recipe.html" class="btn btn-sm btn-outline-primary">View Details</a>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <img class="card-img-top" src="recipe3.jpg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Cryptocurrency</h4>
+                                        <p class="card-text">
+                                            The crypto ecosystem is heavily affecting the way people trade in most countries and will surely affect the future. Discover...
+                                        </p>
+
+                                    </div>
+                                    <div class="card-footer">
+                                        <a href="./template/recipe.html" class="btn btn-sm btn-outline-primary">View Details</a>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <img class="card-img-top" src="recipe3.jpg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Clean & Renewable Energy</h4>
+                                        <p class="card-text">Discover a huge market seeking a solution to the replacement of PMS among other crude
+                                            distillation. Discover more... </p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <a href="./template/recipe.html" class="btn btn-sm btn-outline-primary">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-12 ">
+                <div class="row">
                     <div class="col-sm-3 text-right">
-                        <a href>
+                        <a href="">
                             <i class="material-icons yellow">settings</i>
                         </a>
                     </div>
                     <div class="col-sm-9">
                         <h5>
-                            <a href="" data-toggle="modal" data-target="#accountSettingModal">Account settings</a>
+                            <a href="" data-toggle="modal" data-target="#accountSettingModal">settings</a>
                         </h5>
                     </div>
                 </div>
@@ -106,21 +255,29 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Account Info</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
+                    <style>
+                        .form-group input {
+                            width: 100%;
+                        }
+                    </style>
                     <div class="modal-body">
-                        <form action="" method="" class="form-inline mt-3">
+
+                        <form action="" method="" class="">
                             <div class="form-group">
                                 <input type="text" placeholder="Update Your Username" value="" name="" class="form-control-sm" />
                             </div>
-                            <div class="form-group">
-                                <input type="text" placeholder="Update Your Firstname" value="" name="" class="form-control-sm" />
-                            </div>
-                            <div class="form-group">
-                                <input type="text" placeholder="Update Your Lastnamename" value="" name="" class="form-control-sm" />
+                            <div class="form-row">
+                                <div class="form-group col-sm-6">
+                                    <input type="text" placeholder="Update Your Firstname" value="" name="" class="form-control-sm" />
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <input type="text" placeholder="Update Your Lastname" value="" name="" class="form-control-sm" />
+                                </div>
                             </div>
                             <div class="form-group">
                                 <input type="textarea" col="20" row="20" placeholder="Update Your Address" value="" name="" class="form-control-sm" />
@@ -147,12 +304,12 @@
             <div class="row " style=" height: inherit">
                 <div class="col-sm-12 col-lg-12">
                     <div class="row">
-                        <div class="col-sm-12 col-md-3 col-lg-3 mt-5 mr-3">
+                        <div class="col-sm-12 col-md-12 col-lg-4 mt-5">
                             <h1 class="mt-5">
                                 <a href="index.html">WeConnect</a>
                             </h1>
                         </div>
-                        <div class="col-sm-3 col-md-2 col-lg-2 mt-5  list-div">
+                        <div class="col-sm-3 col-md-3 col-lg-2 mt-5  list-div">
                             <span> Customer Service</span>
                             <ul>
                                 <li>
@@ -172,7 +329,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="col-sm-3 col-md-2 col-lg-2 mt-5 list-div">
+                        <div class="col-sm-3 col-md-3 col-lg-2 mt-5 list-div">
                             <span>About WeConnect</span>
                             <ul>
                                 <li>
@@ -187,9 +344,9 @@
                             </ul>
                         </div>
 
-                        <div class="col-sm-6 col-md-4 col-lg-4 mt-5 form-div">
-                            <form action="" method="" class="form-inline mt-5" style="float: right;">
-                                <div class="form-group">
+                        <div class="col-sm-6 col-md-6 col-lg-4 mt-5">
+                            <form action="" method="" class="form-inline">
+                                <div class="input-group mt-5 mr-5">
                                     <input type="text" placeholder="Subscribe to emails" value="" name="" class="form-control" />
                                     <button class="btn btn-primary">Subscribe</button>
                                 </div>
@@ -215,6 +372,10 @@
             </div>
         </div>
     </footer>
+
+
+
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"

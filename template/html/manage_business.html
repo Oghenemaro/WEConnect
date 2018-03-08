@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../css/WeConnect_stylesheet.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/WeConnect_stylesheet.css">
     <title>Create Business</title>
 </head>
 
@@ -47,17 +47,15 @@
 
 
         <div class="row profile-div mb-5">
-            <div class="col-sm-2">
+            <div class="col-sm-3 nav-menu">
                 <!-- tab list -->
-                <div class="nav flex-column nav-pills mt-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home"
+                <div class="nav flex-column nav-pills text-center mt-5" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link active" id="v-pills-create-tab" data-toggle="pill" href="#v-pills-create" role="tab" aria-controls="v-pills-create"
                         aria-selected="true">Create A Business</a>
-                    <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile"
+                    <a class="nav-link" id="v-pills-edit-tab" data-toggle="pill" href="#v-pills-edit" role="tab" aria-controls="v-pills-edit"
                         aria-selected="false">Edit A Business</a>
-                    <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages"
+                    <a class="nav-link" id="v-pills-view-tab" data-toggle="pill" href="#v-pills-view" role="tab" aria-controls="v-pills-view"
                         aria-selected="false">View Businesses</a>
-                    <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings"
-                        aria-selected="false">Public View</a>
                     <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings"
                         aria-selected="false">Account Settings</a>
                 </div>
@@ -65,17 +63,149 @@
             <div class="col-sm-8">
                 <!-- tab content -->
                 <div class="tab-content" id="v-pills-tabContent">
-                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                        <p>blablabla.</p>
+                    <div class="tab-pane fade show active" id="v-pills-create" role="tabpanel" aria-labelledby="v-pills-create-tab">
+                        <div class="row mt-2">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-9">
+                                <div class="form-group text-center  col-sm-12 manage-business-forms">
+                                    <h1>Create A Business</h1>
+                                    <form method="post" action="" style="padding-bottom: 0px;" role="form">
+                                        <input type="text" placeholder="Enter Company name" name="Cname" value="" class="form-control" required />
+                                        <br>
+                                        <input type="text" placeholder="Enter Business purpose/description" name="lname" value="" class="form-control" required />
+                                        <br>
+                                        <textarea cols="30" rows="10" class="form-control" placeholder="Enter Business purpose/description" required></textarea>
+                                        <br>
+                                        <select class="form-control" required>
+                                            <option>Select a category</option>
+                                            <option>Food</option>
+                                            <option>Technology</option>
+                                            <option>Construction</option>
+                                            <option>Housing & Real Estate</option>
+                                        </select>
+                                        <br>
+                                        <textarea cols="30" rows="10" class="form-control" placeholder="Enter Address" required></textarea>
+                                        <br>
+                                        <select class="form-control" required>
+                                            <option>Select Location</option>
+                                            <option>Lagos</option>
+                                            <option>Abuja</option>
+                                            <option>Ibadan</option>
+                                        </select>
+                                        <br>
+
+                                        <button class="btn btn-primary" name="submit" type="submit">Create</button>
+                                        <button class="btn btn-danger" name="Reset" type="Reset">Clear</button>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                        <p>yhyhyhy</p>
+                    <div class="tab-pane fade" id="v-pills-edit" role="tabpanel" aria-labelledby="v-pills-edit-tab">
+                        <div class="row mt-2">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-9">
+                                <div class="form-group text-center  col-sm-12 manage-business-forms">
+                                    <h1>Edit Your Business</h1>
+                                    <form method="post" action="" style="padding-bottom: 0px;" role="form">
+                                        <select class="form-control" required>
+                                            <option>Select from available businesses</option>
+                                            <option>Eclipse Resturant</option>
+                                            <option>Perspective INC</option>
+                                            <option>Mushroom Technologies</option>
+                                            <option>Cargo Transport</option>
+                                        </select>
+                                        <br>
+                                        <input type="text" placeholder="Update Company name" name="Cname" value="" class="form-control" required />
+                                        <br>
+                                        <textarea cols="30" rows="10" class="form-control" placeholder="Update Business purpose/description" required></textarea>
+                                        <br>
+                                        <select class="form-control" required>
+                                            <option>Update category</option>
+                                            <option>Food</option>
+                                            <option>Technology</option>
+                                            <option>Construction</option>
+                                            <option>Housing & Real Estate</option>
+                                        </select>
+                                        <br>
+                                        <textarea cols="30" rows="10" class="form-control" placeholder="Update Address" required></textarea>
+                                        <br>
+                                        <select class="form-control" required>
+                                            <option>Update Location</option>
+                                            <option>Lagos</option>
+                                            <option>Abuja</option>
+                                            <option>Ibadan</option>
+                                        </select>
+                                        <br>
+
+                                        <button class="btn btn-primary" name="submit" type="submit">Save</button>
+                                        <button class="btn btn-danger" name="Reset" type="Reset">Clear</button>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                        <p>mapingi</p>
+                    <div class="tab-pane fade " id="v-pills-view" role="tabpanel" aria-labelledby="v-pills-view-tab">
+                        <div class="row  mt-2">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-11">
+                                <div class="row">
+                                    <div class="col-sm-12"><h1>Your Businesses</h1></div>
+                                    <div class="col-sm-12 col-lg-4 mt-4">
+                                        <div class="card" style="width: 15rem;">
+                                            <img class="card-img-top" src="recipe3.jpg" alt="Card image cap">
+                                            <div class="card-body">
+                                                <h4 class="card-title">Mushroom Tech.</h4>
+                                                <p class="card-text">We build the future</p>
+                                                <a href="./template/recipe.html" class="btn btn-primary">View Details</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-lg-4 mt-4">
+                                        <div class="card" style="width: 15rem;">
+                                            <img class="card-img-top" src="recipe3.jpg" alt="Card image cap">
+                                            <div class="card-body">
+                                                <h4 class="card-title">Cargo Transport</h4>
+                                                <p class="card-text">from you to the world</p>
+                                                <a href="./template/recipe.html" class="btn btn-primary">View Details</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-lg-4 mt-4">
+                                        <div class="card" style="width: 15rem;">
+                                            <img class="card-img-top" src="recipe3.jpg" alt="Card image cap">
+                                            <div class="card-body">
+                                                <h4 class="card-title">Eclipse Resturant</h4>
+                                                <p class="card-text">Esquisite cusine</p>
+                                                <a href="./template/recipe.html" class="btn btn-primary">View Details</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-                        <p>last div</p>
+                        <div class="row mt-2">
+                            <div class="col-sm-1"></div>
+                            <div class="form-group text-center  col-sm-9 manage-business-forms">
+                                <h1>Create Another Administrator</h1>
+                                <form method="post" action="" style="padding-bottom: 0px;" role="form">
+                                    <input type="text" placeholder="Admin Username" name="Cname" value="" class="form-control" required />
+                                    <br>
+                                    <input type="text" placeholder="Admin Password" name="Pword" value="" class="form-control" required />
+                                    <br>
+                                    <input type="text" placeholder="Confirm Password" name="Cpword" value="" class="form-control" required />
+                                    <br>
+
+                                    <button class="btn btn-primary" name="submit" type="submit">Save</button>
+                                    <button class="btn btn-danger" name="Reset" type="Reset">Clear</button>
+
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -88,12 +218,12 @@
             <div class="row " style=" height: inherit">
                 <div class="col-sm-12 col-lg-12">
                     <div class="row">
-                        <div class="col-sm-12 col-md-3 col-lg-3 mt-5 mr-3">
+                        <div class="col-sm-12 col-md-12 col-lg-4 mt-5">
                             <h1 class="mt-5">
                                 <a href="index.html">WeConnect</a>
                             </h1>
                         </div>
-                        <div class="col-sm-3 col-md-2 col-lg-2 mt-5  list-div">
+                        <div class="col-sm-3 col-md-3 col-lg-2 mt-5  list-div">
                             <span> Customer Service</span>
                             <ul>
                                 <li>
@@ -113,7 +243,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="col-sm-3 col-md-2 col-lg-2 mt-5 list-div">
+                        <div class="col-sm-3 col-md-3 col-lg-2 mt-5 list-div">
                             <span>About WeConnect</span>
                             <ul>
                                 <li>
@@ -128,9 +258,9 @@
                             </ul>
                         </div>
 
-                        <div class="col-sm-6 col-md-4 col-lg-4 mt-5 form-div">
-                            <form action="" method="" class="form-inline mt-5" style="float: right;">
-                                <div class="form-group">
+                        <div class="col-sm-6 col-md-6 col-lg-4 mt-5">
+                            <form action="" method="" class="form-inline">
+                                <div class="input-group mt-5 mr-5">
                                     <input type="text" placeholder="Subscribe to emails" value="" name="" class="form-control" />
                                     <button class="btn btn-primary">Subscribe</button>
                                 </div>
@@ -139,7 +269,7 @@
                     </div>
                 </div>
                 <div class="col-sm-12 col-lg-12 text-center mt-5">
-                    <!-- <div><i class="material-icons">face</i></div> -->
+                    <div><i class="material-icons">face</i></div>
                     <div>
                         <i class="material-icons">facebook</i>
                     </div>
@@ -156,6 +286,8 @@
             </div>
         </div>
     </footer>
+
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"

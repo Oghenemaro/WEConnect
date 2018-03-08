@@ -97,9 +97,29 @@ nav-item>nav-link:active{
     
 }
 
+/* find a business page */
+.locate-business{
+    margin-top: 10px;
+    
+}
 
+.container-fluid .locate-business .locate-business-form{
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    top: 40%;
+    z-index: 1;
+    color: orange;
+    width: 98%;
+}
 
-
+/* manage a business page */
+.manage-business-forms{
+    font-family: 'Times New Roman', Times, serif;
+}
+.nav-menu{
+    font-family: 'Times New Roman', Times, serif;
+}
 
 /*others*/
 

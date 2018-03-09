@@ -1,0 +1,200 @@
+body{
+    background-color: white;
+    font-family: 'Times New Roman', Times, serif;
+    padding-top: 4%;
+}
+
+.container-fluid{
+	margin: 0;
+    overflow: hidden;
+}
+
+/* navigation */
+nav{
+    width: 100%;
+}
+
+nav-item>nav-link:active{
+    color: blue;
+}
+
+/* carousel */
+.container-fluid #homeWelcomeCarousel{
+	margin: 0px;
+    overflow: visible;
+    padding: 0px;
+} 
+.carousel-inner > .carousel-item >img{
+    min-height : 500px;
+    max-height : 600px;
+    width : 100%;
+  }
+
+  .container-fluid #homeWelcomeCarousel #homeWelcomeSearch{
+	margin: 0px;
+    padding: 0px;
+    position: absolute;
+    top: 40%;
+    z-index: 1;
+    color: orange;
+} 
+
+
+
+
+
+/*images*/
+.img-fluid{
+    max-width: 100%;
+    height: auto;
+}
+
+
+/*cards*/
+.mini-cards{
+    color: #000;
+    width: 150px;                 /* Set width of cards */
+    border: 1px solid #EF9A9A;    /* Set up Border */
+    border-radius: 4px;           /* Slightly Curve edges */
+    overflow: hidden;             /* Fixes the corners */
+    display: flex;                /* Children use Flexbox */
+    flex-direction: column;       /* Rotate Axis */
+}
+
+.card-header{
+  color: #D32F2F;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  border-bottom: 1px solid #EF9A9A;
+  background-color: #FFEBEE;
+  padding: 5px 10px;
+}
+
+.card-main{
+  display: flex;              /* Children use Flexbox */
+  flex-direction: column;     /* Rotate Axis to Vertical */
+  justify-content: center;    /* Group Children in Center */
+  align-items: center;        /* Group Children in Center (+axis) */
+  padding: 15px 0; 
+}
+
+.material-icons {
+  /* font-size: 36px; */
+  color: orangered;
+  margin-bottom: 5px;
+}
+
+.main-description {
+  color: #D32F2F;
+  font-size: 20px;
+  text-align: center;
+}
+
+/* profile page */
+.profile-div{
+    margin-top: 80px;
+    
+}
+
+/* find a business page */
+.locate-business{
+    margin-top: 10px;
+    
+}
+
+.container-fluid .locate-business .locate-business-form{
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    top: 40%;
+    z-index: 1;
+    color: orange;
+    width: 98%;
+}
+
+/* manage a business page */
+.manage-business-forms{
+    font-family: 'Times New Roman', Times, serif;
+}
+.nav-menu{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/*others*/
+
+
+.search-div{
+    top: 200px;
+    left: 200px;
+    z-index: 3;
+}
+hr{
+
+    border-style: inset;
+    border-width: 1px;
+}
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    background: #6d7fcc;
+}
+
+/* footer */
+footer{
+  /* padding: 0px; */
+  /* margin: 0px; */
+  background-color:   #323031;
+  color: whitesmoke;
+}
+
+footer h1{
+    font-family: 'Times New Roman', Times, serif;
+    /* font-size: 60px; */
+} 
+
+footer span{
+    font-family: 'Times New Roman', Times, serif;
+    /* font-size: 20px; */
+} 
+
+.list-div ul {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    font-family: 'Times New Roman', Times, serif;
+    /* font-size: 16px; */
+}
+
+.list-div ul li {
+    color: #999;
+}
+
+footer .row div{
+    overflow: hidden;
+}
+
+
+footer .form-div input{
+    float: left;
+}
+
+footer .input-group{
+    float: left;
+}
+
+.material-icons i { margin-top: 2px; padding: 0px;}
+

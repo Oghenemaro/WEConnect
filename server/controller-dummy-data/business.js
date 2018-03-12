@@ -86,6 +86,21 @@ class Business {
     }
     return res.status(200).json({ Businesses: business });
   }
+
+
+  static getABusinessReviews(req, res) {
+    if (req.params.id) {
+      let i;
+      const businessSelected = req.params.id;
+      for (i = 0; i < business.length; i += 1) {
+        if (business[i].id === parseInt(businessSelected, 10)) {
+          res.status(200).send({ B: business[i].business_name, Reviews: business[i].reviews });
+        }
+      }
+    } else {
+      return res.status(400).send({ message: 'Record not found, please select an existing business' });
+    }
+  }
 }
 
 export default Business;

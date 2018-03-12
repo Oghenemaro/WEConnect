@@ -34,6 +34,22 @@ class Business {
       return res.status(400).send({ message: 'You are not signed in, Please sign in' });
     }
   }
+
+
+  static deleteBusiness(req, res) {
+    if (req.params.id) {
+      let i, removed;
+      for (i = 0; i < business.length; i += 1) {
+        if (business[i].id === parseInt(req.params.id, 10)) {
+          removed = business.splice(i, 1);
+          return res.status(200).json({ record: removed, message: 'Business Deleted' });
+        }
+      }
+      res.status(400).json({ message: 'Record not found' });
+    } else {
+      return res.status(400).json({ message: 'A record must be entered' });
+    }
+  }
 }
 
 export default Business;

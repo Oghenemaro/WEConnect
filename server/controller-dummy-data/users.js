@@ -24,6 +24,18 @@ class UsersController {
       return res.status(400).json({ message: 'Request is empty' });
     }
   }
+
+  static authenticateUser(req, res) {
+    if (req.body) {
+      const { username, password } = req.body;
+      for (let i = 0; i < users.length; i += 1) {
+        if (users[i].username === username && users[i].password === password) {
+          return res.status(200).send({ message: `Welcome ${username}` });
+        }
+      }
+      return res.status(401).send({ message: 'Incorrect username or password' });
+    }
+  }
 }
 
 export default UsersController;

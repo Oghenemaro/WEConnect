@@ -50,6 +50,16 @@ class Business {
       return res.status(400).json({ message: 'A record must be entered' });
     }
   }
+
+
+  static getABusiness(req, res) {
+    if (req.params.id) {
+      const businessSelected = req.params.id;
+      res.status(200).send({ Business: business[businessSelected - 1] });
+    } else {
+      return res.status(400).send({ message: 'Business not available, please select from our provided list' });
+    }
+  }
 }
 
 export default Business;

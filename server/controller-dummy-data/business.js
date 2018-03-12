@@ -60,6 +60,10 @@ class Business {
       return res.status(400).send({ message: 'Business not available, please select from our provided list' });
     }
   }
+
+  static getAllBusinesses(req, res) {
+    return res.status(200).json({ Businesses: business });
+  }
 }
 
 export default Business;

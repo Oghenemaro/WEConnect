@@ -62,6 +62,17 @@ class Business {
   }
 
   static getAllBusinesses(req, res) {
+    const { location } = req.query;
+    const locationList = [];
+
+    if (location) {
+      for (let i = 0; i < business.length; i += 1) {
+        if (business[i].business_location.toLowerCase() === location.toLowerCase()) {
+          locationList.push(business[i]);
+        }
+      }
+      return res.status(200).send({ Business: locationList });
+    }
     return res.status(200).json({ Businesses: business });
   }
 }

@@ -101,6 +101,22 @@ class Business {
       return res.status(400).send({ message: 'Record not found, please select an existing business' });
     }
   }
+
+  static addBusinessReview(req, res) {
+    if (req.params.id) {
+      const businessSelected = req.params.id;
+      let i;
+      for (i = 0; i < business.length; i += 1) {
+        if (business[i].id === parseInt(businessSelected, 10)) {
+          business[i].reviews.push(req.body.reviews);
+          res.status(200).send({ message: 'Review added' });
+        }
+      }
+      res.status(401).send({ message: `${business[i].id}Review not added` });
+    } else {
+      return res.status(400).send({ message: 'Record not found, please select an existing business' });
+    }
+  }
 }
 
 export default Business;

@@ -14,7 +14,7 @@ const Route = require('./server/routes/routes');
 
 app.use('/', Route);
 
-app.get('*', (req, res) => res.status(200).send({
+app.get('*', (req, res) => res.status(400).send({
   message: 'Welcome to the beginning of nothingness.',
 }));
 

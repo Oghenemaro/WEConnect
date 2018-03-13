@@ -4,9 +4,9 @@
   "description": "Business facilitator",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --require babel-register ./server/test/dummy-data-test --timeout 100000 --exit",
+    "test": "nyc --reporter=html --reporter=text mocha --exit --timeout 10000 --compilers js:babel-register ./server/test/dummy-data-test || true",
     "start:dev": "nodemon --exec babel-node ./bin/www",
-    "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -37,7 +37,8 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
     "mocha-lcov-reporter": "^1.3.0",
-    "nodemon": "^1.15.1"
+    "nodemon": "^1.15.1",
+    "nyc": "^11.6.0"
   },
   "bin": {
     "weconnect": "www.js"

@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Oghenemaro/WEConnect.svg?branch=chore_database_setup)](https://travis-ci.org/Oghenemaro/WEConnect)
+[![Build Status](https://travis-ci.org/Oghenemaro/WEConnect.svg?branch=chore_travisci)](https://travis-ci.org/Oghenemaro/WEConnect)
 
 [![Coverage Status](https://coveralls.io/repos/github/Oghenemaro/WEConnect/badge.svg?branch=master)](https://coveralls.io/github/Oghenemaro/WEConnect?branch=chore_travisci)
 

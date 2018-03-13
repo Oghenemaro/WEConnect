@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/Oghenemaro/WEConnect.svg?branch=chore_database_setup)](https://travis-ci.org/Oghenemaro/WEConnect)
+
+
 # WEConnect
 WeConnect is a web platform designed to bring businessess and individuals looking to work together. The platform creates awareness for the business and connects them to available markets or individuals present on the platform in return individuals who have worked with any business can leave a review on their interaction with the business to help others understand or judge the validity a business.
 

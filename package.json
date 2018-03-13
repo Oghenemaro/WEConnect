@@ -4,7 +4,7 @@
   "description": "Business facilitator",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --require babel-register ./server/test/dummy-data-test --timeout 100",
+    "test": "mocha --require babel-register ./server/test/dummy-data-test --timeout 100000 --exit",
     "start:dev": "nodemon --exec babel-node ./bin/www"
   },
   "repository": {

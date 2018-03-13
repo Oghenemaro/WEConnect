@@ -7,7 +7,6 @@
     "test": "mocha --require babel-register ./server/test/dummy-data-test --timeout 100000 --exit",
     "start:dev": "nodemon --exec babel-node ./bin/www",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "coveralls": "nyc npm test&& nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",

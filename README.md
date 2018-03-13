@@ -1,6 +1,4 @@
-[![Build Status](https://travis-ci.org/Oghenemaro/WEConnect.svg?branch=chore_travisci)](https://travis-ci.org/Oghenemaro/WEConnect)
-
-[![Coverage Status](https://coveralls.io/repos/github/Oghenemaro/WEConnect/badge.svg?branch=chore_travisci)](https://coveralls.io/github/Oghenemaro/WEConnect?branch=chore_travisci)
+[![Build Status](https://travis-ci.org/Oghenemaro/WEConnect.svg?branch=chore_travisci)](https://travis-ci.org/Oghenemaro/WEConnect)[![Coverage Status](https://coveralls.io/repos/github/Oghenemaro/WEConnect/badge.svg?branch=chore_travisci)](https://coveralls.io/github/Oghenemaro/WEConnect?branch=chore_travisci)[![Maintainability](https://api.codeclimate.com/v1/badges/840c7f6452d9bc778984/maintainability)](https://codeclimate.com/github/Oghenemaro/WEConnect/maintainability)
 
 # WEConnect
 WeConnect is a web platform designed to bring businessess and individuals looking to work together. The platform creates awareness for the business and connects them to available markets or individuals present on the platform in return individuals who have worked with any business can leave a review on their interaction with the business to help others understand or judge the validity a business.

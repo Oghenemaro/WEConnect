@@ -1,28 +1,106 @@
-swagger: "1"
+swagger: '2.0'
 info:
-  title: "WeConnect API"
-  Version: "0.7.5"
-host: 
-  - localhost:7000
-paths: 
-  /api/v1/businesses:
+  version: 0.7.5
+  title: WeConnect API
+host: localhost:7000
+basePath: /api/v1
+paths:
+  /businesses:
     get:
-      summary: Returns a list of business.
       responses:
-        '200':    # status code
-          description: A JSON array of business information
-          content:
-            application/json:
-              schema: 
-                type: array
-                items: 
-                  type: string
-        '400': 
-          description: An invalid request to business route
+        200:
+          $ref: "#/responses/200"
+        400:
+          $ref: "#/responses/400"
+        
+  /businesses/:
+    post:
+      summary: Creates a new business.
+      consumes:
+        - application/json
+      parameters:
+          
+        - in: body
+          name: create business
+          description: route to create a business
+          schema:
+            $ref: "#/definitions/business"
+        
+      responses:
+        200:
+          $ref: "#/responses/200"
+        400:
+          $ref: "#/responses/400"
+          
+          
+  /businesses/{id}:
+    put:
+      summary: Update an existing business.
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: update business
+          description: route to update a business
+          schema:
+            type: string
             
-schemes:
-  - http
-consumes:
-  - application/json
-produces:
-  - application/json
+        - in: path
+          name: id
+          required: true
+          type: integer
+      responses:
+        200:
+          $ref: "#/responses/200"
+        400:
+          $ref: "#/responses/400"
+  
+  # /businesses/{id}:
+  #   delete:
+  #     summary: Delete a business.
+  #     consumes:
+  #       - application/json
+  #     parameters:
+  #       - in: path
+  #         name: id
+  #         required: true
+  #         type: integer
+  
+  #     responses:
+  #       200:
+  #         $ref: "#/responses/200"
+  #       400:
+  #         $ref: "#/responses/400"
+
+
+responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+
+        '400':
+          description: Bad Request
+
+
+
+
+
+definitions:
+  business:
+    type: string
+    required:
+      - business_name
+    properties:
+      id: 
+        type: integer
+      business_name:
+        type: string
+      business_description:
+        type: string
+      business_location:
+        type: string
+      business_category:
+        type: string
+    
+    

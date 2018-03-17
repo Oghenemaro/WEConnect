@@ -18,7 +18,7 @@ router.put('/api/v1/businesses/:id', business.modifyBusiness);
 router.get('/api/v1/businesses/:id', business.getABusiness);
 router.post('/api/v1/businesses/:id/reviews', business.addBusinessReview);
 router.get('/api/v1/business/:id/reviews', business.getABusinessReviews);
-router.get('/api/v1/business?location', business.getAllBusinesses);
+router.get('/api/v1/businesses?location', business.getAllBusinesses);
 
 
 module.exports = router;

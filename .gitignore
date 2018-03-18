@@ -1,3 +1,6 @@
 node_modules
 .nyc_output
 .vscode
+coverage
+template/css/desktop.ini
+template/images/desktop.ini

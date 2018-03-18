@@ -7,26 +7,26 @@ class UsersController {
     }
   }
 
+
   static createUser(req, res) {
-    if (req.body) {
-      users.push({
-        id: users.length + 1,
-        username: req.body.username,
-        password: req.body.password,
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        email: req.body.email,
-        telephone: req.body.telephone,
-        address: req.body.address
-      });
-      res.status(200).json({ message: 'User Account Created' });
-    } else {
+    if (!req.body.username) {
       return res.status(400).json({ message: 'Request is empty' });
     }
+    users.push({
+      id: users.length + 1,
+      username: req.body.username,
+      password: req.body.password,
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+      email: req.body.email,
+      telephone: req.body.telephone,
+      address: req.body.address
+    });
+    res.status(200).json({ message: 'User Account Created' });
   }
 
   static authenticateUser(req, res) {
-    if (req.body) {
+    if (req.body.username) {
       const { username, password } = req.body;
       for (let i = 0; i < users.length; i += 1) {
         if (users[i].username === username && users[i].password === password) {
@@ -35,6 +35,7 @@ class UsersController {
       }
       return res.status(401).send({ message: 'Incorrect username or password' });
     }
+    return res.status(400).send({ message: 'Credentials must be entered' });
   }
 }
 

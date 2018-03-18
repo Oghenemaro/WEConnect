@@ -1,5 +1,12 @@
 node_modules
+<<<<<<< HEAD
 .nyc_output
 .vscode
 template/css/desktop.ini
 template/images/desktop.ini
+=======
+template/css/desktop.ini
+template/images/desktop.ini
+.vscode
+.nyc_output
+>>>>>>> feature_dummy_data_controller_add_a_business_review

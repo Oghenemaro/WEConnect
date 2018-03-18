@@ -2,3 +2,4 @@ node_modules
 template/css/desktop.ini
 template/images/desktop.ini
 .vscode/settings.json
+.nyc_output

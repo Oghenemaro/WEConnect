@@ -41,5 +41,11 @@ module.exports = (sequelize, DataTypes) => {
       foreignkey: 'id'
     });
   };
+  users.associate = (models) => {
+    users.belongsTo(models.locations, {
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE'
+    });
+  };
   return users;
 };

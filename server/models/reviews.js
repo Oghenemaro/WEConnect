@@ -13,5 +13,11 @@ module.exports = (sequelize, DataTypes) => {
       onUpdate: 'CASCADE'
     });
   };
+  reviews.associate = (models) => {
+    reviews.belongsTo(models.businesses, {
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE'
+    });
+  };
   return reviews;
 };

@@ -1,12 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../template/css/WeConnect_stylesheet.css">
+    <title>Contact</title>
 </head>
+
 <body>
-    
+    <div class="container-fluid">
+        <nav class=" navbar navbar-expand-lg navbar-light bg-light fixed-top  col-sm-12">
+            <div class="col-sm-12 col-lg-4">
+                <a class="navbar-brand" href="../../index.html">
+                    <h3>WeConnect</h3>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent"
+                    aria-expanded="false" aria-label="Toggle navigation" style="float: right">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse col-sm-12 col-lg-8" id="navbarContent">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0" id="navbar" style="text-align: right;">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="find_businesses.html">Find A business</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile.html">Profile</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <a class="btn btn-outline-primary btn-sm mr-3" href="signup.html" style="float: right;">Sign up</a>
+                <a class=" btn btn-outline-primary btn-sm mr-3" href="signin.html" style="float: right;">Login</a>
+            </div>
+        </nav>
+        <!-- <style>
+            .form-control{
+                width: 90%;
+            }
+        </style> -->
+        <div class="container-fluid">
+        <div class="row" style="margin-top: 80px;">
+            <div class="col-md-4 col-sm-12" style="background-image: url('../images/contact_us_small.jpg'); background-repeat: no-repeat; margin-top: 60px;"></div>
+            <div class="form-group col-md-7 col-sm-12 text-center">
+                <h1>Leave A Message</h1>
+                <form method="post" action="" style="padding-bottom: 0px;" role="form">
+                    <input type="text" placeholder="Enter username" name="username" value="" class="form-control" required />
+                    <br>
+                    <textarea cols="90" rows="10" placeholder="Enter Message" class="form-control"  required></textarea>
+                    <br>
+
+                    <button class="btn btn-primary" name="submit" type="submit">Send</button>
+                    <button class="btn btn-danger" name="reset" type="reset">Clear</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <footer class="footer">
+        <div class="container-fluid mt-5">
+            <div class="row " style=" height: inherit">
+                <div class="col-sm-12 col-lg-12">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-4 mt-5">
+                            <h1 class="mt-5">
+                                <a href="index.html">WeConnect</a>
+                            </h1>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-2 mt-5  list-div">
+                            <span> Customer Service</span>
+                            <ul>
+                                <li>
+                                    <a href="#">help center</a>
+                                </li>
+                                <li>
+                                    <a href="#">FAQ</a>
+                                </li>
+                                <li>
+                                    <a href="#">report abuse</a>
+                                </li>
+                                <li>
+                                    <a href="#">policy & rules</a>
+                                </li>
+                                <li>
+                                    <a href="#">privacy</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-2 mt-5 list-div">
+                            <span>About WeConnect</span>
+                            <ul>
+                                <li>
+                                    <a href="#">company bio</a>
+                                </li>
+                                <li>
+                                    <a href="#">contact</a>
+                                </li>
+                                <li>
+                                    <a href="#">our team</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="col-sm-6 col-md-6 col-lg-4 mt-5">
+                            <form action="" method="" class="form-inline">
+                                <div class="input-group mt-5 mr-5">
+                                    <input type="text" placeholder="Subscribe to emails" value="" name="" class="form-control" />
+                                    <button class="btn btn-primary">Subscribe</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-lg-12 text-center mt-5">
+                    <div>
+                        <i class="material-icons">facebook</i>
+                    </div>
+                    <div>
+                        <i class="material-icons">goggle</i>
+                    </div>
+                    <div>
+                        <i class="material-icons">twitter</i>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-lg-12 mt-5">
+                    <span>&COPY; 2018, Copyright WeConnect </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>

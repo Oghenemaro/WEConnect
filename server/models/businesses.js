@@ -18,10 +18,6 @@ module.exports = (sequelize, DataTypes) => {
     business_category: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    business_location: {
-      type: DataTypes.STRING,
-      allowNull: false
     }
   });
   businesses.associate = (models) => {

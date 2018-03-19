@@ -1,4 +1,3 @@
-'strict';
 
 module.exports = {
   up: (queryInterface, Sequelize) =>
@@ -10,7 +9,8 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       categories: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       createdAt: {
         allowNull: false,

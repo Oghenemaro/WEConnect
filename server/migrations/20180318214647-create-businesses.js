@@ -13,6 +13,19 @@ module.exports = {
       allowNull: false,
       unique: true
     },
+    business_description: {
+      type: Sequelize.STRING,
+      allowNull: false,
+      unique: true
+    },
+    business_address: {
+      type: Sequelize.TEXT,
+      allowNull: false
+    },
+    business_category: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
     createdAt: {
       allowNull: false,
       type: Sequelize.DATE

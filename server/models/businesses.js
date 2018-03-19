@@ -4,12 +4,12 @@ module.exports = (sequelize, DataTypes) => {
   const businesses = sequelize.define('businesses', {
     business_name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      unique: true
     },
     business_description: {
       type: DataTypes.STRING,
-      allowNull: false,
-      unique: true
+      allowNull: false
     },
     business_address: {
       type: DataTypes.TEXT,

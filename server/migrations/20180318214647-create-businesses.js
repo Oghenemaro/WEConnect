@@ -16,7 +16,6 @@ module.exports = {
     business_description: {
       type: Sequelize.STRING,
       allowNull: false,
-      unique: true
     },
     business_address: {
       type: Sequelize.TEXT,

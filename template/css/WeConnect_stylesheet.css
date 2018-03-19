@@ -51,15 +51,6 @@ nav-item>nav-link:active{
 
 
 /*cards*/
-.mini-cards{
-    color: #000;
-    width: 150px;                 /* Set width of cards */
-    border: 1px solid #EF9A9A;    /* Set up Border */
-    border-radius: 4px;           /* Slightly Curve edges */
-    overflow: hidden;             /* Fixes the corners */
-    display: flex;                /* Children use Flexbox */
-    flex-direction: column;       /* Rotate Axis */
-}
 
 .card-header{
   color: #D32F2F;
@@ -72,15 +63,14 @@ nav-item>nav-link:active{
 }
 
 .card-main{
-  display: flex;              /* Children use Flexbox */
-  flex-direction: column;     /* Rotate Axis to Vertical */
-  justify-content: center;    /* Group Children in Center */
-  align-items: center;        /* Group Children in Center (+axis) */
+  display: flex;              
+  flex-direction: column;     
+  justify-content: center;    
+  align-items: center;        
   padding: 15px 0; 
 }
 
 .material-icons {
-  /* font-size: 36px; */
   color: orangered;
   margin-bottom: 5px;
 }
@@ -112,6 +102,9 @@ nav-item>nav-link:active{
     color: orange;
     width: 98%;
 }
+.locate-business-form .form-control{
+    width: 20%;
+}
 
 /* manage a business page */
 .manage-business-forms{
@@ -121,9 +114,8 @@ nav-item>nav-link:active{
     font-family: 'Times New Roman', Times, serif;
 }
 
+
 /*others*/
-
-
 .search-div{
     top: 200px;
     left: 200px;
@@ -155,20 +147,16 @@ ul ul a {
 
 /* footer */
 footer{
-  /* padding: 0px; */
-  /* margin: 0px; */
   background-color:   #323031;
   color: whitesmoke;
 }
 
 footer h1{
     font-family: 'Times New Roman', Times, serif;
-    /* font-size: 60px; */
 } 
 
 footer span{
     font-family: 'Times New Roman', Times, serif;
-    /* font-size: 20px; */
 } 
 
 .list-div ul {
@@ -176,7 +164,6 @@ footer span{
     margin: 0px;
     list-style: none;
     font-family: 'Times New Roman', Times, serif;
-    /* font-size: 16px; */
 }
 
 .list-div ul li {

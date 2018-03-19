@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../css/WeConnect_stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="css/WeConnect_stylesheet.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Business Profile</title>
 </head>
@@ -16,7 +16,7 @@
     <div class="container-fluid">
         <nav class=" navbar navbar-expand-lg navbar-light bg-light fixed-top  col-sm-12">
             <div class="col-sm-12 col-lg-4">
-                <a class="navbar-brand" href="../../index.html">
+                <a class="navbar-brand" href="../index.html">
                     <h3>WeConnect</h3>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent"
@@ -27,10 +27,10 @@
             <div class="collapse navbar-collapse col-sm-12 col-lg-8" id="navbarContent">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0" id="navbar" style="text-align: right;">
                     <li class="nav-item">
-                        <a class="nav-link" href="../../index.html">Home</a>
+                        <a class="nav-link" href="../index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="find_businesses.html">Find A business</a>
+                        <a class="nav-link" href="find_businesses.html">Businesses</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="profile.html">Profile</a>
@@ -47,7 +47,7 @@
 
         <div class="row mt-5 mb-5">
             <div class="col-md-3 col-sm-12 text-center">
-                <img src="../images/eclipse-logo.png" class="img-thumbnail" alt="Not Supported">
+                <img src="images/eclipse-logo.png" class="img-thumbnail" alt="Not Supported">
             </div>
             <div class="col-md-8 col-sm-12 ">
                 <h2>Eclipse
@@ -87,13 +87,20 @@
                     </div>
                 </div>
                 <div class="col-sm-12 mt-5">
-                    <h4>Reviews</h4>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <h4>Reviews</h4>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <button class="btn btn-sm btn-warning"  data-toggle="modal" data-target="#addReviewForm" style="float: right;">Add A Review</button>
+                        </div>
+                    </div>
                     <hr>
                     <div class="row">
                         <div class="col-sm-12 ml-2">
                             <div class="row mb-2">
                                 <div class="col-sm-2" style="padding: 10px;">
-                                    <img src="../images/comment-avatar-afro-guy.png" class="img-thumbnail" alt="Not Supported">
+                                    <img src="images/comment-avatar-afro-guy.png" class="img-thumbnail" alt="Not Supported">
                                 </div>
                                 <div class="col-sm-9">
                                     <p class="mt-4">Great Ice Cream!</p>
@@ -101,7 +108,7 @@
                             </div>
                             <div class="row mb-2">
                                 <div class="col-sm-2">
-                                    <img src="../images/comment-avatar-ginger-guy.png" class="img-thumbnail" alt="Not Supported">
+                                    <img src="images/comment-avatar-ginger-guy.png" class="img-thumbnail" alt="Not Supported">
                                 </div>
                                 <div class="col-sm-9">
                                     <p>I had shrims for the first time today and I must say I'm impressed with the taste, might
@@ -110,7 +117,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-2">
-                                    <img src="../images/comment-avatar-male_14.png" class="img-thumbnail" alt="Not Supported">
+                                    <img src="images/comment-avatar-male_14.png" class="img-thumbnail" alt="Not Supported">
                                 </div>
                                 <div class="col-sm-9 mt-2">
                                     <p>Customer service was slow</p>
@@ -118,12 +125,40 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
-
             </div>
-
         </div>
+
+        <!-- add review Modal -->
+        <div class="modal fade" id="addReviewForm" tabindex="-1" role="dialog" aria-labelledby="accountSettingModal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Leave A Review</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <style>
+                        .form-group input {
+                            width: 100%;
+                        }
+                    </style>
+                    <div class="modal-body">
+                        <form action="" method="" class="">
+                            <div class="form-group">
+                                <textarea cols="30" rows="10" class="form-control" placeholder="Say your mind" required></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
     <!-- footer begins -->
     <footer class="footer">
@@ -133,7 +168,7 @@
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-4 mt-5">
                             <h1 class="mt-5">
-                                <a href="../../index.html">WeConnect</a>
+                                <a href="../index.html">WeConnect</a>
                             </h1>
                         </div>
                         <div class="col-sm-3 col-md-3 col-lg-2 mt-5  list-div">

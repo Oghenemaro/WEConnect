@@ -1,4 +1,4 @@
-import business from '../model-dummy-data/mBusiness';
+import business from '../model-dummy-data/businesses';
 
 
 class Business {

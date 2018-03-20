@@ -19,6 +19,7 @@ class Business {
       reviews
     });
     res.status(200).send({
+      Status: 'Successfull',
       message: 'Business Created'
     });
   }

@@ -3,17 +3,12 @@ import business from '../model-dummy-data/businesses';
 
 class Business {
   static createBusiness(req, res) {
-    if (!req.body.business_name) {
-      return res.status(400).send({
-        message: 'A record must be entered'
-      });
-    }
     const {
       businessName,
       businessDescription,
       businessLocation,
       businessCategory,
-      review
+      reviews
     } = req.body;
     business.push({
       id: business.length + 1,
@@ -21,98 +16,125 @@ class Business {
       business_description: businessDescription,
       business_location: businessLocation,
       business_category: businessCategory,
-      reviews: review
+      reviews
     });
     res.status(200).send({
       message: 'Business Created'
     });
   }
 
+  static getBusiness(req) {
+    if (req.params.id) {
+      const findBusiness = businesses => businesses.id === parseInt(req.params.id, 10);
+      const businessFound = business.filter(findBusiness);
+      return businessFound;
+    }
+  }
+
 
   static modifyBusiness(req, res) {
-    if (req.params.id) {
-      for (let i = 0; i < business.length; i += 1) {
-        if (business[i].id === parseInt(req.params.id, 10)) {
-          business[i].business_name = req.body.business_name;
-          business[i].business_description = req.body.business_description;
-          business[i].business_location = req.body.business_location;
-          business[i].business_category = req.body.business_category;
-          business[i].reviews = req.body.reviews;
-          return res.status(200).send({
-            record: business[i],
-            message: 'Record Updated'
-          });
-        }
-      }
+    const businessFound = Business.getBusiness(req);
+    const businessID = businessFound[0].id - 1;
+    const {
+      businessName,
+      businessDescription,
+      businessLocation,
+      businessCategory,
+      reviews
+    } = req.body;
+
+    if (businessFound.length < 1) {
       return res.status(400).send({
+        Status: 'Failed',
         message: 'Record not found, please select an existing business'
       });
     }
+    business[businessID].business_name = businessName;
+    business[businessID].business_description = businessDescription;
+    business[businessID].business_location = businessLocation;
+    business[businessID].business_category = businessCategory;
+    business[businessID].reviews = reviews;
+    return res.status(200).send({
+      Status: 'Successful',
+      record: business[businessID]
+    });
   }
 
 
   static deleteBusiness(req, res) {
-    if (!req.params.id) {
-      res.status(400).json({
-        message: 'Record not found'
+    const businessFound = Business.getBusiness(req);
+    const businessID = businessFound[0].id - 1;
+    if (businessFound.length < 1) {
+      return res.status(400).send({
+        Status: 'Failed',
+        message: 'Record not found, please select an existing business'
       });
-    } else if (req.params.id) {
-      let i, removed;
-      for (i = 0; i < business.length; i += 1) {
-        if (business[i].id === parseInt(req.params.id, 10)) {
-          removed = business.splice(i, 1);
-          return res.status(200).json({
-            record: removed,
-            message: 'Business Deleted'
-          });
-        }
-      }
-    } else {
-      return res.status(400).json({
-        message: 'A record must be entered'
+    } else if (businessFound.length >= 1) {
+      const removed = business.splice(businessID, 1);
+      return res.status(200).json({
+        Status: 'Business Deleted',
+        record: removed
       });
     }
+    return res.status(400).json({
+      Status: 'Failed',
+      message: 'A record must be entered'
+    });
   }
 
 
   static getABusiness(req, res) {
-    if (req.params.id) {
-      const businessSelected = req.params.id;
-      res.status(200).send({
-        Business: business[businessSelected - 1]
-      });
-    } else {
+    const businessFound = Business.getBusiness(req);
+    const businessID = businessFound[0].id - 1;
+    if (businessFound.length < 1) {
       return res.status(400).send({
-        message: 'Business not available, please select from our provided list'
+        Status: 'Failed',
+        message: 'Record not found, please select an existing business'
+      });
+    } else if (businessFound.length >= 1) {
+      return res.status(200).json({
+        Status: 'Successful',
+        Business: business[businessID],
       });
     }
+    return res.status(400).send({
+      Status: 'Failed',
+      message: 'Business not available, please select from our provided list'
+    });
   }
+
+  // static searchBusiness(req) {
+  //   if (req.params) {
+  //     const { location } = req.params;
+  //     const validateLocation = locations => locations.toLowerCase() === location();
+  //     const locationResult = (validateLocation !== '') ? validateLocation : 0;
+  //     const selectedResult = (locationResult !== 0) ? 1 : 0;
+  //     return selectedResult;
+  //   }
+  // }
 
   static getAllBusinesses(req, res) {
     const {
       location,
       category
     } = req.query;
-    const locationList = [];
-    const categoryList = [];
     if (location) {
-      for (let i = 0; i < business.length; i += 1) {
-        if (business[i].business_location.toLowerCase() === location.toLowerCase()) {
-          locationList.push(business[i]);
-        }
-      }
+      const validateLocation = locations => locations.business_location.toLowerCase() === location.toLowerCase();
+      const findBusiness = business.filter(validateLocation);
       return res.status(200).send({
-        Business: locationList
+        Business: findBusiness
       });
     }
     if (category) {
-      for (let i = 0; i < business.length; i += 1) {
-        if (business[i].business_category.toLowerCase() === category.toLowerCase()) {
-          categoryList.push(business[i]);
-        }
-      }
+      const validateCategory = locations => locations.business_category.toLowerCase() === category.toLowerCase();
+      const findBusiness = business.filter(validateCategory);
       return res.status(200).send({
-        Business: categoryList
+        Business: findBusiness
+      });
+    }
+    if (business.length < 1) {
+      return res.status(200).json({
+        Businesses: 'No business found in that location'
       });
     }
     return res.status(200).json({
@@ -122,35 +144,34 @@ class Business {
 
 
   static getABusinessReviews(req, res) {
-    if (req.params.id) {
-      let i;
-      const businessSelected = req.params.id;
-      for (i = 0; i < business.length; i += 1) {
-        if (business[i].id === parseInt(businessSelected, 10)) {
-          res.status(200).send({
-            B: business[i].business_name,
-            Reviews: business[i].reviews
-          });
-        }
-      }
-    } else {
+    const businessFound = Business.getBusiness(req);
+    const businessID = businessFound[0].id - 1;
+    if (businessFound.length < 1) {
       return res.status(400).send({
+        Status: 'Failed',
         message: 'Record not found, please select an existing business'
       });
+    } else if (businessFound.length >= 1) {
+      return res.status(200).json({
+        Business: business[businessID].business_name,
+        Reviews: business[businessID].reviews
+      });
     }
+    return res.status(400).send({
+      Status: 'Failed',
+      message: 'Business not available, please select from our provided list'
+    });
   }
 
   static addBusinessReview(req, res) {
-    if (req.params.id && req.body.reviews) {
-      const businessSelected = req.params.id;
-      let i;
-      for (i = 0; i < business.length; i += 1) {
-        if (business[i].id === parseInt(businessSelected, 10)) {
-          business[i].reviews.push(req.body.reviews);
-          res.status(200).send({
-            message: 'Review added'
-          });
-        }
+    const businessFound = Business.getBusiness(req);
+    if (businessFound && req.body.reviews) {
+      const businessID = businessFound[0].id - 1;
+      if (businessFound.length >= 1) {
+        business[businessID].reviews.push(req.body.reviews);
+        return res.status(200).send({
+          message: 'Review added'
+        });
       }
     } else {
       return res.status(400).send({

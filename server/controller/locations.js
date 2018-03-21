@@ -4,19 +4,21 @@ const dbLocation = db.locations;
 
 class Locations {
   static addNewLocation(req, res) {
-    const { location } = req.body;
-    if (!location) {
+    const { states } = req.body;
+    if (!states) {
       return res.status(400).send({ Status: 'Failed', Message: 'A location was not entered, enter a new location' });
     }
     return dbLocation
       .create({
-        location
+        states
       })
       .then(() => res.status(200).send({ Status: 'Successful', Message: 'New Location added' }))
-      .catch(() => res.status(400));
+      .catch(() => res.status(400).send({ Status: 'Failed', Message: 'Failed to create new location' }));
   }
   static getAllLocations(req, res) {
-    return res.status(200).send({ Status: 'Successful', Locations: dbLocation });
+    dbLocation.findAll()
+      .then(locations => res.status(200).send({ Status: 'Successful', Message: locations }))
+      .catch(() => res.status(400).send({ Status: 'Failed', Message: 'Failed to retrieve locations' }));
   }
 }
 

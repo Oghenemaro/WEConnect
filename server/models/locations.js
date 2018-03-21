@@ -4,7 +4,8 @@ module.exports = (sequelize, DataTypes) => {
   const location = sequelize.define('locations', {
     states: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      unique: true
     }
   });
   location.associate = (models) => {

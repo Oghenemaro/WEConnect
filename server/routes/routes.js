@@ -3,6 +3,7 @@ import users from '../controller/users';
 import business from '../controller/business';
 import CheckInput from '../middleware/CheckInputs';
 import locations from '../controller/locations';
+import category from '../controller/category';
 
 const router = express.Router();
 
@@ -26,6 +27,8 @@ router.get('/api/v1/businesses?category', business.getAllBusinesses);
 // extras
 router.get('/api/v1/locations', locations.getAllLocations);
 router.post('/api/v1/locations/', locations.addNewLocation);
+router.post('/api/v1/categories/', category.addNewCategory);
+router.get('/api/v1/categories', category.getCategories);
 
 
 module.exports = router;

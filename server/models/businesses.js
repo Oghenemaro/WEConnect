@@ -26,23 +26,33 @@ module.exports = (sequelize, DataTypes) => {
   });
   businesses.associate = (models) => {
     businesses.hasMany(models.reviews, {
-      foreignkey: 'id'
+      foreignkey: 'businessId',
+      as: 'reviews'
+    });
+  };
+  businesses.associate = (models) => {
+    businesses.hasMany(models.bookmarks, {
+      foreignkey: 'businessId',
+      as: 'business'
     });
   };
   businesses.associate = (models) => {
     businesses.belongsTo(models.category, {
+      foreignkey: 'categoryId',
       onDelete: 'CASCADE',
       onUpdate: 'CASCADE'
     });
   };
   businesses.associate = (models) => {
     businesses.belongsTo(models.locations, {
+      foreignkey: 'locationId',
       onDelete: 'CASCADE',
       onUpdate: 'CASCADE'
     });
   };
   businesses.associate = (models) => {
     businesses.belongsTo(models.users, {
+      foreignkey: 'usersId',
       onDelete: 'CASCADE',
       onUpdate: 'CASCADE'
     });

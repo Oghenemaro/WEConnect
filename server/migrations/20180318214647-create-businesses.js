@@ -10,8 +10,24 @@ module.exports = {
     },
     business_name: {
       type: Sequelize.STRING,
+      allowNull: false
+    },
+    business_description: {
+      type: Sequelize.STRING,
       allowNull: false,
       unique: true
+    },
+    business_address: {
+      type: Sequelize.TEXT,
+      allowNull: false
+    },
+    business_category: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
+    business_location: {
+      type: Sequelize.STRING,
+      allowNull: false
     },
     createdAt: {
       allowNull: false,

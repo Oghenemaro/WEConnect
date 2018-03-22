@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "nyc --reporter=html --reporter=text mocha --exit --timeout 10000 --compilers js:babel-register ./server/test/dummy-data-test || true",
-    "start:dev": "nodemon --exec babel-node ./bin/www",
+    "start": "babel-node ./bin/www",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {

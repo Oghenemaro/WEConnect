@@ -2,6 +2,7 @@ import express from 'express';
 import users from '../controller-dummy-data/users';
 import business from '../controller-dummy-data/business';
 import CheckInput from '../middleware/CheckInputs';
+import Locations from '../controller/Locations';
 
 const router = express.Router();
 
@@ -21,6 +22,7 @@ router.post('/api/v1/businesses/:id/reviews', business.addBusinessReview);
 router.get('/api/v1/business/:id/reviews', business.getABusinessReviews);
 router.get('/api/v1/businesses?location', business.getAllBusinesses);
 router.get('/api/v1/businesses?category', business.getAllBusinesses);
-
+router.get('/api/v1/locations', Locations.getAllLocations);
+router.post('/api/v1/location/', Locations.addNewLocation);
 
 module.exports = router;

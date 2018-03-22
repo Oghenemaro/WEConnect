@@ -27,15 +27,16 @@ class Business {
   static getBusiness(req) {
     if (req.params.id) {
       const findBusiness = businesses => businesses.id === parseInt(req.params.id, 10);
-      const businessFound = business.filter(findBusiness);
-      return businessFound;
+      const foundBusiness = business.filter(findBusiness);
+      const businessId = (foundBusiness) ? req.params.id : '';
+      return businessId;
     }
   }
 
 
   static modifyBusiness(req, res) {
-    const businessFound = Business.getBusiness(req);
-    const businessID = businessFound[0].id - 1;
+    let businessFound = Business.getBusiness(req);
+    // console.log(businessFound);
     const {
       businessName,
       businessDescription,
@@ -44,34 +45,36 @@ class Business {
       reviews
     } = req.body;
 
-    if (businessFound.length < 1) {
+    if (!businessFound) {
       return res.status(400).send({
         Status: 'Failed',
         message: 'Record not found, please select an existing business'
       });
     }
-    business[businessID].business_name = businessName;
-    business[businessID].business_description = businessDescription;
-    business[businessID].business_location = businessLocation;
-    business[businessID].business_category = businessCategory;
-    business[businessID].reviews = reviews;
+    businessFound -= 1;
+    business[businessFound].business_name = businessName;
+    business[businessFound].business_description = businessDescription;
+    business[businessFound].business_location = businessLocation;
+    business[businessFound].business_category = businessCategory;
+    business[businessFound].reviews = reviews;
     return res.status(200).send({
       Status: 'Successful',
-      record: business[businessID]
+      record: business[businessFound]
     });
   }
 
 
   static deleteBusiness(req, res) {
-    const businessFound = Business.getBusiness(req);
-    const businessID = businessFound[0].id - 1;
-    if (businessFound.length < 1) {
+    let businessFound = Business.getBusiness(req);
+    if (!businessFound) {
       return res.status(400).send({
         Status: 'Failed',
         message: 'Record not found, please select an existing business'
       });
-    } else if (businessFound.length >= 1) {
-      const removed = business.splice(businessID, 1);
+    }
+    if (businessFound) {
+      businessFound -= 1;
+      const removed = business.splice(businessFound, 1);
       return res.status(200).json({
         Status: 'Business Deleted',
         record: removed
@@ -86,16 +89,15 @@ class Business {
 
   static getABusiness(req, res) {
     const businessFound = Business.getBusiness(req);
-    const businessID = businessFound[0].id - 1;
-    if (businessFound.length < 1) {
+    if (businessFound < 1) {
       return res.status(400).send({
         Status: 'Failed',
         message: 'Record not found, please select an existing business'
       });
-    } else if (businessFound.length >= 1) {
+    } else if (businessFound >= 1) {
       return res.status(200).json({
         Status: 'Successful',
-        Business: business[businessID],
+        Business: business[businessFound],
       });
     }
     return res.status(400).send({
@@ -103,16 +105,6 @@ class Business {
       message: 'Business not available, please select from our provided list'
     });
   }
-
-  // static searchBusiness(req) {
-  //   if (req.params) {
-  //     const { location } = req.params;
-  //     const validateLocation = locations => locations.toLowerCase() === location();
-  //     const locationResult = (validateLocation !== '') ? validateLocation : 0;
-  //     const selectedResult = (locationResult !== 0) ? 1 : 0;
-  //     return selectedResult;
-  //   }
-  // }
 
   static getAllBusinesses(req, res) {
     const {
@@ -145,17 +137,17 @@ class Business {
 
 
   static getABusinessReviews(req, res) {
-    const businessFound = Business.getBusiness(req);
-    const businessID = businessFound[0].id - 1;
-    if (businessFound.length < 1) {
+    let businessFound = Business.getBusiness(req);
+    if (!businessFound) {
       return res.status(400).send({
         Status: 'Failed',
         message: 'Record not found, please select an existing business'
       });
-    } else if (businessFound.length >= 1) {
+    } else if (businessFound) {
+      businessFound -= 1;
       return res.status(200).json({
-        Business: business[businessID].business_name,
-        Reviews: business[businessID].reviews
+        Business: business[businessFound].business_name,
+        Reviews: business[businessFound].reviews
       });
     }
     return res.status(400).send({
@@ -167,9 +159,8 @@ class Business {
   static addBusinessReview(req, res) {
     const businessFound = Business.getBusiness(req);
     if (businessFound && req.body.reviews) {
-      const businessID = businessFound[0].id - 1;
-      if (businessFound.length >= 1) {
-        business[businessID].reviews.push(req.body.reviews);
+      if (businessFound >= 1) {
+        business[businessFound].reviews.push(req.body.reviews);
         return res.status(200).send({
           message: 'Review added'
         });

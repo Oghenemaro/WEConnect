@@ -7,14 +7,14 @@ module.exports = (sequelize, DataTypes) => {
   });
   bmark.associate = (models) => {
     bmark.belongsTo(models.businesses, {
-      foreignkey: 'businessId',
+      foreignkey: 'businessID',
       onDelete: 'CASCADE',
       onUpdate: 'CASCADE'
     });
   };
   bmark.associate = (models) => {
     bmark.belongsTo(models.users, {
-      foreignkey: 'usersId',
+      foreignkey: 'userID',
       onDelete: 'CASCADE',
       onUpdate: 'CASCADE'
     });

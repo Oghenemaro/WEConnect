@@ -33,16 +33,22 @@ module.exports = (sequelize, DataTypes) => {
   });
   users.associate = (models) => {
     users.hasMany(models.reviews, {
-      foreignkey: 'id'
+      foreignkey: 'userID'
     });
   };
   users.associate = (models) => {
     users.hasMany(models.businesses, {
-      foreignkey: 'id'
+      foreignkey: 'userID'
+    });
+  };
+  users.associate = (models) => {
+    users.hasMany(models.bookmarks, {
+      foreignkey: 'userID'
     });
   };
   users.associate = (models) => {
     users.belongsTo(models.locations, {
+      foreignkey: 'locationID',
       onDelete: 'CASCADE',
       onUpdate: 'CASCADE'
     });

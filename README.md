@@ -14,13 +14,13 @@ Best of all, as a user you can also own a business, the platform allows you crea
 Finally but not absolute, you can streamline the search of a business by using the search form provided to locate a business either by location or business category or even both conditions depending on what suits you. 
 
 
-# Build Status 
-
 # Code Style
 Airbnb style
 
 # Screenshots
-
+![Alt text](/template/images/home-screenshot.jpg?raw=true "Optional Title")
+![Alt text](/template/images/business-profile-screenshot.jpg?raw=true "Optional Title")
+![Alt text](/template/images/profile-screenshot.jpg?raw=true "Optional Title")
 
 # Built with
 - NodeJS
@@ -36,5 +36,5 @@ Airbnb style
 ISC Licence
 
 # Acknowledgement
-User Interface was inspired by alibaba.com and americommerce.com
-Project objective was inspired by Andela.com and the current challenge of finding an available market for a business in Nigeria
+1. User Interface was inspired by alibaba.com and americommerce.com
+2. Project objective was inspired by Andela.com and the current challenge of finding an available market for a business in Nigeria

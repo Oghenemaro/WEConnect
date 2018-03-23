@@ -22,7 +22,6 @@
         "requireReturnType": true,
         "requireParamDescription": false,
         "requireReturnDescription": true,
-        // "linebreak-style": ["error", "window"]
       }],
       "require-jsdoc": ["error", {
           "require": {

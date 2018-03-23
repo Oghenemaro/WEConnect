@@ -22,5 +22,4 @@ router.get('/api/v1/business/:id/reviews', Business.getABusinessReviews);
 router.get('/api/v1/businesses?location', Business.getAllBusinesses);
 router.get('/api/v1/businesses?category', Business.getAllBusinesses);
 
-
 module.exports = router;

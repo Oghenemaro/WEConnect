@@ -5,7 +5,7 @@ info:
 host: "localhost:7001"
 basePath: "/api/v1"
 paths:
-  /auth/signup:
+  "/auth/signup":
     post:
       summary: "Creates a user"
       consumes: 

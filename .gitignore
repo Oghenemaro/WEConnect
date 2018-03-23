@@ -5,3 +5,6 @@ template/css/desktop.ini
 template/images/desktop.ini
 .vscode
 coverage
+
+coverage/base.css
+coverage/base.css

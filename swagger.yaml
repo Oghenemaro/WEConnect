@@ -8,11 +8,24 @@ paths:
   /businesses:
     get:
       summary: Gets all businesses.
+      parameters:
+        - in: query
+          name: location
+          description: business locationb query
+          required: false
+          type: string
+        - in: query
+          name: category
+          type: string
+          required: false
+          
       responses:
         '200':
           $ref: '#/responses/200'
         '400':
           $ref: '#/responses/400'
+          
+          
   /businesses/:
     post:
       summary: Creates a new business. 
@@ -87,6 +100,46 @@ paths:
           $ref: '#/responses/200'
         '400':
           $ref: '#/responses/400'
+  /businesses/{businessid}/reviews:
+    post:
+      summary: Adds a business review 
+      consumes: 
+        - application/json
+      parameters:
+        - in: body
+          name: reviews
+          schema:
+            $ref: '#/definitions/reviews'
+        - in: path
+          name: businessid
+          required: true
+          type: integer
+      responses:
+        '200':
+          $ref: '#/responses/200'
+        '400':
+          $ref: '#/responses/400'
+    get:
+      summary: Gets all reviews 
+      consumes: 
+        - application/json
+      parameters:
+        - in: body
+          name: reviews
+          schema:
+            $ref: '#/definitions/reviews'
+        - in: path
+          name: businessid
+          required: true
+          type: integer
+      responses:
+        '200':
+          $ref: '#/responses/200'
+        '400':
+          $ref: '#/responses/400'
+
+      
+        
 
           
           
@@ -115,3 +168,13 @@ definitions:
         type: string
       business_category:
         type: string
+  reviews:
+    type: string
+    required:
+      - reviews
+    properties:
+      id:
+        type: integer
+      reviews:
+        type: string
+    

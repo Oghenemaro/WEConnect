@@ -6,7 +6,7 @@ import YAML from 'yamljs';
 
 
 const app = express();
-const swaggerDocument = YAML.load(`${process.cwd()}/swagger.yaml`);
+const swaggerDocument = YAML.load('./swagger.yaml');
 
 app.use(logger('dev'));
 

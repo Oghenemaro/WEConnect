@@ -1,10 +1,28 @@
-swagger: '2.0'
+swagger: "2.0"
 info:
-  version: 0.7.5
-  title: WeConnect API
-host: 'localhost:7000'
-basePath: /api/v1
+  version: "0.7.5"
+  title: 'WeConnect API'
+host: "localhost:7001"
+basePath: "/api/v1"
 paths:
+  /auth/signup:
+    post:
+      summary: "Creates a user"
+      consumes: 
+        - "application/json"
+      parameters:
+        - in: body
+          name: create user
+          schema: 
+            type: object 
+      responses:
+        '200':
+          $ref: '#/responses/200'
+        '400':
+          $ref: '#/responses/400'
+          
+  
+          
   /businesses:
     get:
       summary: Gets all businesses.
@@ -68,7 +86,7 @@ paths:
         - application/json
       parameters:
         - in: body
-          name: delete business business
+          name: delete business 
           description: route to update a business
           schema:
             type: string
@@ -146,8 +164,6 @@ paths:
 responses:
   '200':
     description: OK
-    schema:
-      type: object
   '400':
     description: Bad Request
     

@@ -142,10 +142,6 @@ paths:
       consumes: 
         - application/json
       parameters:
-        - in: body
-          name: reviews
-          schema:
-            $ref: '#/definitions/reviews'
         - in: path
           name: businessid
           required: true

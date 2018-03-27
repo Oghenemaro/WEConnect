@@ -1,5 +1,4 @@
 
-
 module.exports = (sequelize, DataTypes) => {
   const businesses = sequelize.define('businesses', {
     business_name: {
@@ -9,7 +8,6 @@ module.exports = (sequelize, DataTypes) => {
     business_description: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true
     },
     business_address: {
       type: DataTypes.TEXT,
@@ -19,30 +17,38 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    business_location: {
+    image: {
       type: DataTypes.STRING,
       allowNull: false
-    }
+    },
   });
   businesses.associate = (models) => {
     businesses.hasMany(models.reviews, {
-      foreignkey: 'id'
+      foreignkey: 'businessID'
     });
   };
   businesses.associate = (models) => {
-    businesses.belongsTo(models.category, {
+    businesses.hasMany(models.bookmarks, {
+      foreignkey: 'businessID'
+    });
+  };
+  businesses.associate = (models) => {
+    businesses.belongsTo(models.categories, {
+      foreignkey: 'categoryID',
       onDelete: 'CASCADE',
       onUpdate: 'CASCADE'
     });
   };
   businesses.associate = (models) => {
     businesses.belongsTo(models.locations, {
+      foreignkey: 'locationID',
       onDelete: 'CASCADE',
       onUpdate: 'CASCADE'
     });
   };
   businesses.associate = (models) => {
     businesses.belongsTo(models.users, {
+      foreignkey: 'userID',
       onDelete: 'CASCADE',
       onUpdate: 'CASCADE'
     });

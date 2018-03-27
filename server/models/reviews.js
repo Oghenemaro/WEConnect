@@ -9,12 +9,14 @@ module.exports = (sequelize, DataTypes) => {
   });
   reviews.associate = (models) => {
     reviews.belongsTo(models.users, {
+      foreignkey: 'userID',
       onDelete: 'CASCADE',
       onUpdate: 'CASCADE'
     });
   };
   reviews.associate = (models) => {
     reviews.belongsTo(models.businesses, {
+      foreignkey: 'businessID',
       onDelete: 'CASCADE',
       onUpdate: 'CASCADE'
     });

@@ -1,15 +1,15 @@
 
 
 module.exports = {
-  up: (queryInterface, Sequelize) => queryInterface.createTable('reviews', {
+  up: (queryInterface, Sequelize) => queryInterface.createTable('bookmarks', {
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
       type: Sequelize.INTEGER
     },
-    review: {
-      type: Sequelize.STRING,
+    count: {
+      type: Sequelize.INTEGER,
       allowNull: false
     },
     userID: {
@@ -41,5 +41,5 @@ module.exports = {
       type: Sequelize.DATE
     }
   }),
-  down: queryInterface => queryInterface.dropTable('reviews')
+  down: queryInterface => queryInterface.dropTable('bookmarks')
 };

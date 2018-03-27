@@ -15,6 +15,24 @@ class users {
     }).then(() => res.status(200).send({ Status: 'successfull', message: 'Account Created' }))
       .catch(() => res.status(409).send({ Status: 'failed', message: 'A problem occured please try again' }));
   }
+
+  static authenticateUser(req, res) {
+    if (req.body.username && req.body.password) {
+      const {
+        username,
+        password
+      } = req.body;
+      const userCheck = userz => userz.username === username && user.password === password;
+      const result = users.filter(userCheck);
+      if (result.length < 1) {
+        return res.status(400).send({ status: 'failed', message: 'Wrong username or password, enter correct credentials' });
+      }
+      return res.status(200).send({ status: 'successfull', message: `Welcome: ${username}` });
+    }
+    return res.status(400).send({
+      message: 'Credentials must be entered'
+    });
+  }
 }
 
 export default users;

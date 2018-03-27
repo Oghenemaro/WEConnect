@@ -1,6 +1,6 @@
 import express from 'express';
-import Users from '../controller-dummy-data/Users';
-import Business from '../controller-dummy-data/Business';
+import Users from '../controller/Users';
+import Business from '../controller/Business';
 import CheckInput from '../middleware/CheckInputs';
 
 const router = express.Router();

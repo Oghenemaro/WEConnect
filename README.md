@@ -20,7 +20,7 @@ Airbnb style
 # Screenshots
 ![Alt text](template/images/home-screenshot.png?raw=true "Optional Title")
 ![Alt text](template/images/business-profile-screenshot.png?raw=true "Optional Title")
-![Alt text](template/images/profile-screenshot.png?raw=true "Optional Title")
+<!-- ![Alt text](template/images/profile-screenshot.png?raw=true "Optional Title") -->
 
 # Built with
 - NodeJS

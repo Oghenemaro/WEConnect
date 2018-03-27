@@ -41,7 +41,6 @@ class UsersController {
         username,
         password
       } = req.body;
-      // consider putting this fn in a middleware for other auth
       const userCheck = user => user.username === username && user.password === password;
       const result = users.filter(userCheck);
       if (result.length < 1) {

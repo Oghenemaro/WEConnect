@@ -30,25 +30,30 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
       allowNull: false
     },
+    locationID: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      unique: true
+    }
   });
   users.associate = (models) => {
     users.hasMany(models.reviews, {
-      foreignkey: 'userID'
+      foreignkey: 'id'
     });
   };
   users.associate = (models) => {
     users.hasMany(models.businesses, {
-      foreignkey: 'userID'
+      foreignkey: 'id'
     });
   };
   users.associate = (models) => {
     users.hasMany(models.bookmarks, {
-      foreignkey: 'userID'
+      foreignkey: 'id'
     });
   };
   users.associate = (models) => {
     users.belongsTo(models.locations, {
-      foreignkey: 'locationID',
+      foreignkey: 'id',
       onDelete: 'CASCADE',
       onUpdate: 'CASCADE'
     });

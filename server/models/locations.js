@@ -9,14 +9,12 @@ module.exports = (sequelize, DataTypes) => {
   });
   location.associate = (models) => {
     location.hasMany(models.businesses, {
-      foreignkey: 'locationID',
-      as: 'businesses'
+      foreignkey: 'id',
     });
   };
   location.associate = (models) => {
     location.hasMany(models.users, {
-      foreignkey: 'locationID',
-      as: 'users'
+      foreignkey: 'id',
     });
   };
   return location;

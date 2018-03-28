@@ -5,18 +5,28 @@ module.exports = (sequelize, DataTypes) => {
     review: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    userID: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      unique: true
+    },
+    businessID: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      unique: true
     }
   });
   reviews.associate = (models) => {
     reviews.belongsTo(models.users, {
-      foreignkey: 'userID',
+      foreignkey: 'id',
       onDelete: 'CASCADE',
       onUpdate: 'CASCADE'
     });
   };
   reviews.associate = (models) => {
     reviews.belongsTo(models.businesses, {
-      foreignkey: 'businessID',
+      foreignkey: 'id',
       onDelete: 'CASCADE',
       onUpdate: 'CASCADE'
     });

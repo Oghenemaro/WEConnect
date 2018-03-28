@@ -21,34 +21,49 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
+    locationID: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      unique: true
+    },
+    categoryID: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      unique: true
+    },
+    userID: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      unique: true
+    },
   });
   businesses.associate = (models) => {
     businesses.hasMany(models.reviews, {
-      foreignkey: 'businessID'
+      foreignkey: 'id'
     });
   };
   businesses.associate = (models) => {
     businesses.hasMany(models.bookmarks, {
-      foreignkey: 'businessID'
+      foreignkey: 'id'
     });
   };
   businesses.associate = (models) => {
     businesses.belongsTo(models.categories, {
-      foreignkey: 'categoryID',
+      foreignkey: 'id',
       onDelete: 'CASCADE',
       onUpdate: 'CASCADE'
     });
   };
   businesses.associate = (models) => {
     businesses.belongsTo(models.locations, {
-      foreignkey: 'locationID',
+      foreignkey: 'id',
       onDelete: 'CASCADE',
       onUpdate: 'CASCADE'
     });
   };
   businesses.associate = (models) => {
     businesses.belongsTo(models.users, {
-      foreignkey: 'userID',
+      foreignkey: 'id',
       onDelete: 'CASCADE',
       onUpdate: 'CASCADE'
     });

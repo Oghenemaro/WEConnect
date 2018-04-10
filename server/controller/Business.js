@@ -1,27 +1,30 @@
+import db from '../models/index';
 import business from '../model-dummy-data/businesses';
 
+const dbBusinesses = db.businesses;
 
 class Business {
   static createBusiness(req, res) {
     const {
       businessName,
       businessDescription,
-      businessLocation,
       businessCategory,
-      reviews
+      reviews,
+      businessAddress,
+      image
     } = req.body;
-    business.push({
-      id: business.length + 1,
+    return dbBusinesses.create({
       business_name: businessName,
       business_description: businessDescription,
-      business_location: businessLocation,
       business_category: businessCategory,
-      reviews
-    });
-    res.status(200).send({
-      Status: 'Successfull',
-      message: 'Business Created'
-    });
+      business_address: businessAddress,
+      reviews,
+      image,
+      categoryID: req.body.categoryID,
+      locationID: req.body.locationID,
+      userID: req.body.userID
+    }).then(() => res.status(200).send({ Status: 'Successfull', message: 'Business Created' }))
+      .catch(error => res.status(401).send({ Status: 'Failed', message: error }));
   }
 
   static getBusiness(req) {
@@ -106,33 +109,31 @@ class Business {
     });
   }
 
-  static getAllBusinesses(req, res) {
-    const {
-      location,
-      category
-    } = req.query;
-    if (location) {
+  static findBusinessByQuery(location, category) {
+    if (location === undefined && category === undefined) {
+      return business;
+    } else if (location !== undefined) {
       const validateLocation = locations => locations.business_location.toLowerCase() === location.toLowerCase();
-      const findBusiness = business.filter(validateLocation);
-      return res.status(200).send({
-        Business: findBusiness
-      });
-    }
-    if (category) {
+      const foundBusiness = business.filter(validateLocation);
+      return foundBusiness;
+    } else if (category !== undefined) {
       const validateCategory = locations => locations.business_category.toLowerCase() === category.toLowerCase();
       const findBusiness = business.filter(validateCategory);
-      return res.status(200).send({
-        Business: findBusiness
-      });
+      return findBusiness;
     }
-    if (business.length < 1) {
-      return res.status(200).json({
-        Businesses: 'No business found in that location'
-      });
+  }
+
+  static getAllBusinesses(req, res) {
+    const { location, category } = req.query;
+    if (location === undefined && category === undefined) {
+      return res.status(200).send({ status: 'successful', Businesses: business });
+    } else if (location !== undefined) {
+      const businessByLocation = Business.findBusinessByQuery(location);
+      return res.status(200).send({ status: 'successful', Business: businessByLocation });
+    } else if (category !== undefined) {
+      const businessByCategory = Business.findBusinessByQuery(category);
+      return res.status(200).send({ status: 'successful', Business: businessByCategory });
     }
-    return res.status(200).json({
-      Businesses: business
-    });
   }
 
 

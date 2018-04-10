@@ -1,6 +1,10 @@
 node_modules
+.nyc_output
+.vscode
 template/css/desktop.ini
 template/images/desktop.ini
-.vscode/settings.json
-.nyc_output
+.vscode
 coverage
+
+coverage/base.css
+coverage/base.css

@@ -31,13 +31,13 @@ class Users {
       address,
       password,
       locationID: req.body.locationID
-    }).then(() => res.status(200).send({ Status: 'successfull', Token: Users.authentication(req), message: 'Account Created' }))
+    }).then(() => res.status(200).send({ Status: 'successfull', message: 'Account Created' }))
       .catch(() => res.status(409).send({ Status: 'failed', message: 'A problem occured please try again' }));
   }
 
   static authenticateUser(req, res) {
     user.findOne({
-      attributes: ['username', 'firstname', 'lastname', 'email', 'telephone', 'address', 'password'],
+      attributes: ['id', 'username', 'firstname', 'lastname', 'email', 'telephone', 'address', 'password'],
       where: {
         username: req.body.username
       }
@@ -47,7 +47,7 @@ class Users {
       } else if (userFound.password !== req.body.password) {
         return res.status(400).send({ status: 'failed', message: 'Incorrect username or password' });
       }
-      const token = Users.authentication(req);
+      const token = jwt.sign({ id: userFound.id, username: userFound.username, email: userFound.email }, secretkey, { expiresIn: 1440 });
       return res.status(200).send({ status: 'successfull', Token: token, message: `Welcome: ${userFound.username}` });
     })
       .catch(() => res.status(409).send({ Status: 'failed', message: 'A problem occured please try again' }));

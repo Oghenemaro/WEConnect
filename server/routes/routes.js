@@ -16,8 +16,8 @@ router.post('/api/v1/auth/signup', CheckInput.checkUserFormInput, Users.createUs
 router.post('/api/v1/auth/signin', Users.authenticateUser);
 router.get('/api/v1/businesses', Business.getAllBusinesses);
 router.post('/api/v1/businesses/', CheckInput.checkBusinessFormInput, LocateToken.findToken, LoginStatus.checkLoginStatus, Business.createBusiness);
-router.delete('/api/v1/businesses/:id', LocateToken.findToken, LoginStatus.checkLoginStatus, Business.deleteBusiness);
-router.put('/api/v1/businesses/:id', CheckInput.checkBusinessFormInput, Business.modifyBusiness);
+router.delete('/api/v1/businesses/:id', LocateToken.findToken, Business.deleteBusiness);
+router.put('/api/v1/businesses/:id', CheckInput.checkUpdateBusinessFormInput, LocateToken.findToken, LoginStatus.checkLoginStatus, Business.modifyBusiness);
 router.get('/api/v1/businesses/:id', Business.getABusiness);
 router.post('/api/v1/businesses/:id/reviews', Business.addBusinessReview);
 router.get('/api/v1/business/:id/reviews', Business.getABusinessReviews);

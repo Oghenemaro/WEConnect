@@ -8,5 +8,4 @@ class LocateToken {
   }
 }
 
-
 export default LocateToken;

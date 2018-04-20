@@ -1,5 +1,6 @@
 import db from '../models/index';
 import business from '../model-dummy-data/businesses';
+// import loginInfo from '../middleware/LoginStatus';
 
 const dbBusinesses = db.businesses;
 
@@ -27,43 +28,39 @@ class Business {
       .catch(error => res.status(401).send({ Status: 'Failed', message: error }));
   }
 
-  static getBusiness(req) {
-    if (req.params.id) {
-      const findBusiness = businesses => businesses.id === parseInt(req.params.id, 10);
-      const foundBusiness = business.filter(findBusiness);
-      const businessId = (foundBusiness) ? req.params.id : '';
-      return businessId;
-    }
-  }
-
-
   static modifyBusiness(req, res) {
-    let businessFound = Business.getBusiness(req);
-    // console.log(businessFound);
-    const {
-      businessName,
-      businessDescription,
-      businessLocation,
-      businessCategory,
-      reviews
-    } = req.body;
-
-    if (!businessFound) {
-      return res.status(400).send({
-        Status: 'Failed',
-        message: 'Record not found, please select an existing business'
-      });
-    }
-    businessFound -= 1;
-    business[businessFound].business_name = businessName;
-    business[businessFound].business_description = businessDescription;
-    business[businessFound].business_location = businessLocation;
-    business[businessFound].business_category = businessCategory;
-    business[businessFound].reviews = reviews;
-    return res.status(200).send({
-      Status: 'Successful',
-      record: business[businessFound]
-    });
+    const requestedBusiness = req.params.id;
+    const user = req.body.userID;
+    console.log(user);
+    dbBusinesses.findOne({
+      attributes: ['id', 'business_name', 'business_description', 'business_address', 'business_category', 'image', 'categoryID', 'locationID', 'userID'],
+      where: {
+        id: requestedBusiness
+      }
+    })
+      .then((businessFound) => {
+        const {
+          businessNewName, businessNewDescription, businessCategory, businessAddress, image
+        } = req.body;
+        if (businessFound.userID !== user) {
+          return res.status(401).send({ status: 'failed', message: 'You are not authorized to modify business' });
+        }
+        if (businessFound.userID === user) {
+          businessFound.update(
+            {
+              business_name: businessNewName,
+              business_description: businessNewDescription,
+              // business_category: businessCategory,
+              // business_address: businessAddress,
+              image
+            },
+            { returning: true, where: { id: requestedBusiness } }
+          )
+            .then(businessUpdated => res.status(200).send({ status: 'Successful', message: businessUpdated, NewRecord: businessNewName }))
+            .catch(error => res.status(400).send({ status: 'failed', message: error }));
+        }
+      })
+      .catch(error => res.status(400).send({ status: 'failed', message: error }));
   }
 
 

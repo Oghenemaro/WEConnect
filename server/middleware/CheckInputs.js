@@ -30,10 +30,11 @@ class CheckInput {
   }
 
   static checkUpdateBusinessFormInput(req, res, next) {
+    const businessSelected = req.params.id;
     const {
       businessNewName,
     } = req.body;
-    const result = (businessNewName !== ' ') ? 1 : 0;
+    const result = (businessNewName !== undefined && businessSelected !== undefined) ? 1 : 0;
     if (result === 1) { next(); } else if (result === 0) { return res.status(400).send({ status: 'failed', message: 'A record must be entered for update' }); }
   }
 }

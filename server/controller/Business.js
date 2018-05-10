@@ -1,8 +1,11 @@
 import db from '../models/index';
-import business from '../model-dummy-data/businesses';
+// import business from '../model-dummy-data/businesses';
 // import loginInfo from '../middleware/LoginStatus';
 
 const dbBusinesses = db.businesses;
+const dbLocations = db.locations;
+const dbCategory = db.categories;
+const dbReview = db.reviews;
 
 class Business {
   static createBusiness(req, res) {
@@ -31,7 +34,6 @@ class Business {
   static modifyBusiness(req, res) {
     const requestedBusiness = req.params.id;
     const user = req.body.userID;
-    console.log(user);
     dbBusinesses.findOne({
       attributes: ['id', 'business_name', 'business_description', 'business_address', 'business_category', 'image', 'categoryID', 'locationID', 'userID'],
       where: {
@@ -40,7 +42,7 @@ class Business {
     })
       .then((businessFound) => {
         const {
-          businessNewName, businessNewDescription, businessCategory, businessAddress, image
+          businessNewName, businessNewDescription, image
         } = req.body;
         if (businessFound.userID !== user) {
           return res.status(401).send({ status: 'failed', message: 'You are not authorized to modify business' });
@@ -50,123 +52,164 @@ class Business {
             {
               business_name: businessNewName,
               business_description: businessNewDescription,
-              // business_category: businessCategory,
-              // business_address: businessAddress,
               image
             },
             { returning: true, where: { id: requestedBusiness } }
           )
-            .then(businessUpdated => res.status(200).send({ status: 'Successful', message: businessUpdated, NewRecord: businessNewName }))
+            .then(businessUpdated => res.status(200).send({ status: 'Successful', message: businessUpdated }))
             .catch(error => res.status(400).send({ status: 'failed', message: error }));
         }
       })
-      .catch(error => res.status(400).send({ status: 'failed', message: error }));
+      .catch(() => res.status(400).send({ status: 'failed', message: 'Business not found' }));
   }
 
 
   static deleteBusiness(req, res) {
-    let businessFound = Business.getBusiness(req);
-    if (!businessFound) {
-      return res.status(400).send({
-        Status: 'Failed',
-        message: 'Record not found, please select an existing business'
-      });
-    }
-    if (businessFound) {
-      businessFound -= 1;
-      const removed = business.splice(businessFound, 1);
-      return res.status(200).json({
-        Status: 'Business Deleted',
-        record: removed
-      });
-    }
-    return res.status(400).json({
-      Status: 'Failed',
-      message: 'A record must be entered'
-    });
+    const businessSelected = req.params.id;
+    const user = req.body.userID;
+    dbBusinesses.findOne({
+      attributes: ['id', 'business_name', 'business_description', 'business_address', 'business_category', 'image', 'categoryID', 'locationID', 'userID'],
+      where: {
+        id: businessSelected
+      }
+    }).then((businessFound) => {
+      if (businessFound.userID !== user) {
+        return res.status(401).send({ status: 'failed', message: 'You are not authorized to delete this business ' });
+      }
+      if (user === undefined) {
+        return res.status(400).send({ status: 'failed', message: 'Invalid user, please login' });
+      }
+      if (businessFound.userID === user) {
+        businessFound.destroy({ force: true })
+          .then(() => res.status(200).send({ status: 'Successful', message: 'Business Deleted' }))
+          .catch(error => res.status(400).send({ status: 'failed', message: error }));
+      }
+    })
+      .catch(error => res.status(400).send({ status: 'failed', message: error }));
   }
 
 
   static getABusiness(req, res) {
-    const businessFound = Business.getBusiness(req);
-    if (businessFound < 1) {
-      return res.status(400).send({
-        Status: 'Failed',
-        message: 'Record not found, please select an existing business'
-      });
-    } else if (businessFound >= 1) {
-      return res.status(200).json({
-        Status: 'Successful',
-        Business: business[businessFound],
-      });
-    }
-    return res.status(400).send({
-      Status: 'Failed',
-      message: 'Business not available, please select from our provided list'
-    });
+    const businessSelected = req.params.id;
+    dbBusinesses.findOne({
+      attributes: ['id', 'business_name', 'business_description', 'business_address', 'business_category', 'image', 'categoryID', 'locationID', 'userID'],
+      where: {
+        id: businessSelected
+      }
+    }).then(businessFound => res.status(200).send({ Status: 'Successful', message: businessFound }))
+      .catch(error => res.status(400).send({ Status: 'failed', message: error }));
   }
 
   static findBusinessByQuery(location, category) {
     if (location === undefined && category === undefined) {
-      return business;
+      return dbBusinesses.findOne({
+        attributes: ['id', 'business_name', 'business_description', 'business_address', 'business_category', 'image', 'categoryID', 'locationID', 'userID'],
+        where: {
+          id: 3
+        }
+      }).then(found => found).catch(error => error);
     } else if (location !== undefined) {
-      const validateLocation = locations => locations.business_location.toLowerCase() === location.toLowerCase();
-      const foundBusiness = business.filter(validateLocation);
-      return foundBusiness;
+      return dbLocations.findOne({
+        attributes: ['id', 'state'],
+        where: {
+          state: location.toLowerCase()
+        }
+      }).then(businessesByLocation => dbBusinesses.findAll({
+        attributes: ['id', 'business_name', 'business_description', 'business_address', 'business_category', 'image', 'categoryID', 'locationID', 'userID'],
+        where: {
+          locationID: businessesByLocation.id
+        }
+      }))
+        .catch(error => error);
     } else if (category !== undefined) {
-      const validateCategory = locations => locations.business_category.toLowerCase() === category.toLowerCase();
-      const findBusiness = business.filter(validateCategory);
-      return findBusiness;
+      return dbCategory.findOne({
+        attributes: ['id', 'category'],
+        where: {
+          category: category.toLowerCase()
+        }
+      }).then(categoryFound => dbBusinesses.findAll({
+        attributes: ['id', 'business_name', 'business_description', 'business_address', 'business_category', 'image', 'categoryID', 'locationID', 'userID'],
+        where: {
+          locationID: categoryFound.id
+        }
+      })).then(businessesByCategory => businessesByCategory)
+        .catch(error => error);
     }
   }
 
   static getAllBusinesses(req, res) {
     const { location, category } = req.query;
     if (location === undefined && category === undefined) {
-      return res.status(200).send({ status: 'successful', Businesses: business });
+      // return dbBusinesses.findAll({
+      //   attributes: ['id', 'business_name', 'business_description', 'business_address', 'business_category', 'image', 'categoryID', 'locationID', 'userID']
+      // }).then(found => res.status(200).send({ satus: 'Unmodified', message: found })).catch(error => res.status(400).send({ satus: 'Unmodified', message: error }));
+      const businessList = Business.findBusinessByQuery(location, category);
+      return res.status(200).send({ satus: 'Successful', message: businessList });
     } else if (location !== undefined) {
-      const businessByLocation = Business.findBusinessByQuery(location);
-      return res.status(200).send({ status: 'successful', Business: businessByLocation });
+      const businessesByLocation = Business.findBusinessByQuery(location);
+      if (businessesByLocation !== undefined) {
+        return res.status(200).send({ status: 'Successful', Business: businessesByLocation });
+      }
+      return res.status(400).send({ status: 'failed', Business: 'Invalid Location, provide an existing location' });
     } else if (category !== undefined) {
-      const businessByCategory = Business.findBusinessByQuery(category);
-      return res.status(200).send({ status: 'successful', Business: businessByCategory });
+      const businessesByCategory = Business.findBusinessByQuery(category);
+      if (businessesByCategory !== undefined) {
+        return res.status(200).send({ status: 'Successful', Business: businessesByCategory });
+      }
+      return res.status(400).send({ status: 'failed', Business: 'Invalid Category, provide an existing category' });
     }
   }
 
-
-  static getABusinessReviews(req, res) {
-    let businessFound = Business.getBusiness(req);
-    if (!businessFound) {
-      return res.status(400).send({
-        Status: 'Failed',
-        message: 'Record not found, please select an existing business'
-      });
-    } else if (businessFound) {
-      businessFound -= 1;
-      return res.status(200).json({
-        Business: business[businessFound].business_name,
-        Reviews: business[businessFound].reviews
-      });
-    }
-    return res.status(400).send({
-      Status: 'Failed',
-      message: 'Business not available, please select from our provided list'
-    });
+  static getBusiness(req) {
+    const businessSelected = req.params.id;
+    dbBusinesses.findOne({
+      attributes: ['id', 'business_name', 'business_description', 'business_address', 'business_category', 'image', 'categoryID', 'locationID', 'userID'],
+      where: {
+        id: businessSelected
+      }
+    }).then(businessFound => businessFound)
+      .catch(error => error);
   }
 
   static addBusinessReview(req, res) {
-    const businessFound = Business.getBusiness(req);
-    if (businessFound && req.body.reviews) {
-      if (businessFound >= 1) {
-        business[businessFound].reviews.push(req.body.reviews);
-        return res.status(200).send({
-          message: 'Review added'
-        });
+    const businessSelected = req.params.id;
+    const review = req.body.reviews;
+    const reviewLength = review.length;
+    dbBusinesses.findOne({
+      attributes: ['id', 'business_name', 'business_description', 'business_address', 'business_category', 'image', 'categoryID', 'locationID', 'userID'],
+      where: {
+        id: businessSelected
       }
-    } else {
-      return res.status(400).send({
-        message: 'Review not added'
-      });
+    }).then((businessFound) => {
+      if (businessFound === undefined) {
+        return res.status(400).send({ status: 'failed', message: 'Provide an existing business' });
+      }
+      if (reviewLength <= 0) {
+        return res.status(400).send({ status: 'failed', message: 'A review must be added' });
+      }
+      if (businessFound !== undefined && reviewLength > 0) {
+        return dbReview.create({
+          review,
+          userID: req.body.userID,
+          businessID: businessFound.id
+        }).then(() => res.status(200).send({ status: 'Successful', message: 'Review Added' }))
+          .catch(error => res.status(400).send({ status: 'failed', message: error }));
+      }
+    }).catch(() => res.status(400).send({ status: 'failed', message: 'Business not found, provide an existing business' }));
+  }
+
+  static getABusinessReviews(req, res) {
+    const businessReviewID = req.params.id;
+    if (businessReviewID !== undefined) {
+      return dbReview.findAll({
+        attributes: ['review', 'userID', 'businessID'],
+        where: {
+          businessID: businessReviewID
+        }
+      }).then(businessReviews => res.status(200).send({ status: 'Successful', message: businessReviews }))
+        .catch(() => res.status(400).send({ status: 'failed', message: 'No review found for this business' }));
+    } else if (businessReviewID === undefined) {
+      return res.status(400).send({ status: 'failed', message: 'Provide an existing business' });
     }
   }
 }

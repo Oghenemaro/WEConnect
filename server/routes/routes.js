@@ -19,7 +19,7 @@ router.post('/api/v1/businesses/', CheckInput.checkBusinessFormInput, LocateToke
 router.delete('/api/v1/businesses/:id', LocateToken.findToken, Business.deleteBusiness);
 router.put('/api/v1/businesses/:id', CheckInput.checkUpdateBusinessFormInput, LocateToken.findToken, LoginStatus.checkLoginStatus, Business.modifyBusiness);
 router.get('/api/v1/businesses/:id', Business.getABusiness);
-router.post('/api/v1/businesses/:id/reviews', Business.addBusinessReview);
+router.post('/api/v1/businesses/:id/reviews', LocateToken.findToken, LoginStatus.checkLoginStatus, Business.addBusinessReview);
 router.get('/api/v1/business/:id/reviews', Business.getABusinessReviews);
 router.get('/api/v1/businesses?location', Business.getAllBusinesses);
 router.get('/api/v1/businesses?category', Business.getAllBusinesses);

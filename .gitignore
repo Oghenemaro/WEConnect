@@ -1,7 +1,5 @@
 node_modules
-.nyc_output/09d66dd45bd832b469f3bec2d59ab89a.json
-coverage/WEConnect/server/controller/UsersController.js.html
-coverage/WEConnect/server/model-dummy-data/businesses.js.html
+.nyc_output/
 coverage/
-.nyc_output/260420d076ea4bd81def746fab92233d.json
-*.json
+.vs-code
+.vscode/settings.json
